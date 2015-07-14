@@ -89,8 +89,7 @@
           </div>
         </div>
       </div>
-    </div>
-    
+    </div>    
   </div>
 </nav>
 <nav id="top-float">
@@ -143,75 +142,4 @@
     </div>
   </div>
 </header>
-<?php if ($categories) { ?>
-<div id="main-menu">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-2" style="padding-right: 0;">
-        <nav id="menu" class="navbar">          
-          <ul class="nav navbar-nav">
-              <?php foreach ($categories as $category) { ?>
-              <?php if ($category['children']) { ?>
-              <li class="dropdown">
-                <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
-                <div class="dropdown-menu" style="width: 965px;">
-                  <div class="dropdown-inner">
-                    <a class="dropdown-inner-header" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a> 
-                    <?php foreach (array_chunk($category['children'], ceil(count($category['children']) / $category['column'])) as $children) { ?>
-                    <ul class="list-unstyled">
-                      <?php foreach ($children as $child) { ?>
-                      <li><a href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-                      <?php } ?>
-                    </ul>
-                    <?php } ?>
-                  </div>
-                  <div class="category-ads">
-                    <a href="#" class="ad-item">
-                      <img src="http://thitruongnongnghiep.vn/Portals/0/SanPham/cai-xanh-con-sach-j141110172052910.jpg">
-                    </a>
-                    <a href="#" class="ad-item">
-                      <img src="http://thitruongnongnghiep.vn/Portals/0/SanPham/dua-sap-hqs-02616461626.jpg">
-                    </a>
-                  </div>               
-                </div>
-              </li>
-              <?php } else { ?>
-              <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-              <?php } ?>
-              <?php } ?>
-            </ul>
-        </nav>
-      </div>
-      <div class="col-md-10" style="padding-left: 0;">
-        <div id="slideshow_homepage">
-          <div class="item">
-            <img src="image/catalog/demo/banners/banner1.jpg" alt="dasf" class="img-responsive" />
-          </div>
-          <div class="item">
-            <img src="image/catalog/demo/banners/banner2.jpg" alt="dasf" class="img-responsive" />
-          </div>
-          <div class="item">
-            <img src="image/catalog/demo/banners/banner3.jpg" alt="dasf" class="img-responsive" />
-          </div>
-          <div class="item">
-            <img src="image/catalog/demo/banners/banner4.jpg" alt="dasf" class="img-responsive" />
-          </div>
-          <div class="item">
-            <img src="image/catalog/demo/banners/banner5.jpg" alt="dasf" class="img-responsive" />
-          </div>
-        </div>
-      </div>
-      <script type="text/javascript">
-        $('#slideshow_homepage').owlCarousel({
-          items: 6,
-          autoPlay: 5000,
-          singleItem: true,
-          navigation: true,
-          navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
-          pagination: false
-        });
-      </script>  
-    </div>  
-  </div>
-</div>
-<?php } ?>
+

@@ -1,42 +1,47 @@
-<h3><?php echo $heading_title; ?></h3>
-<div class="row">
-  <?php foreach ($products as $product) { ?>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-    <div class="product-thumb transition">
-      <div class="image"><a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" class="img-responsive" /></a></div>
-      <div class="caption">
-        <h4 class="p-name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></h4>
-        <p class="p-description"><?php echo $product['description']; ?></p>
-        <?php if ($product['rating']) { ?>
-        <div class="rating">
-          <?php for ($i = 1; $i <= 5; $i++) { ?>
-          <?php if ($product['rating'] < $i) { ?>
-          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+<div class="product-block">
+  <h3 class="heading"><?php echo $heading_title; ?></h3>
+  <?php foreach (array_chunk($products, 4) as $subProducts) { ?>
+    <div class="row products">
+      <?php foreach ($subProducts as $product) { ?>
+      <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 product">
+        <div class="pro-img">
+            <a href="<?php echo $product['href']; ?>" title="<?php echo $product['name']; ?>"> 
+                <img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>">
+            </a>
+        </div>
+        <?php if ($product['price']) { ?>                                                     
+        <div class="pro-price">        
+          <?php if (!$product['special']) { ?>
+            <?php echo $product['price']; ?>
           <?php } else { ?>
-          <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-          <?php } ?>
+            <span class="price-new"><?php echo $product['special']; ?></span> 
+            <span class="price-old"><?php echo $product['price']; ?></span>
           <?php } ?>
         </div>
+        <?php } else { ?>
+        <div class="pro-price">
+          Liên hệ
+        </div>
         <?php } ?>
-        <?php if ($product['price']) { ?>
-        <p class="price">
-          <?php if (!$product['special']) { ?>
-          <?php echo $product['price']; ?>
-          <?php } else { ?>
-          <span class="price-new"><?php echo $product['special']; ?></span> <span class="price-old"><?php echo $product['price']; ?></span>
-          <?php } ?>
-          <?php if ($product['tax']) { ?>
-          <span class="price-tax"><?php echo $text_tax; ?> <?php echo $product['tax']; ?></span>
-          <?php } ?>
-        </p>
-        <?php } ?>
+        <div class="pro-name"><a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a></div>
+        <div class="pro-sta">
+            <div class="row">
+                <div class="col-xs-4 s-item">
+                    <i class="fa fa-shopping-cart"></i> 
+                    <span class="pro-number">212</span>
+                </div>
+                <div class="col-xs-4 s-item">
+                    <i class="fa fa-eye"></i> 
+                    <span class="pro-number">3k</span>
+                </div>
+                <div class="col-xs-4 s-item">
+                    <i class="fa fa-user"></i>
+                    <span class="pro-number">20</span>
+                </div>
+            </div>
+        </div>
       </div>
-      <div class="button-group">
-        <button type="button" onclick="cart.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $button_cart; ?></span></button>
-        <button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>
-        <button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>
-      </div>
+      <?php } ?>
     </div>
-  </div>
-  <?php } ?>
+  <?php } ?>  
 </div>
