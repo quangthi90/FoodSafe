@@ -40,7 +40,7 @@
           </tbody>
         </table>
       </div>
-      <div class="text-right"><?php echo $pagination; ?></div>
+      <div class="text-right pagination-wrapper"><?php echo $pagination; ?></div>
       <?php } else { ?>
       <p><?php echo $text_empty; ?></p>
       <?php } ?>

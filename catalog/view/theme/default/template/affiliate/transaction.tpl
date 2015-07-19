@@ -42,7 +42,7 @@
           </tbody>
         </table>
       </div>
-      <div class="text-right"><?php echo $pagination; ?></div>
+      <div class="text-right pagination-wrapper"><?php echo $pagination; ?></div>
       <div class="buttons clearfix">
         <div class="pull-right"><a href="<?php echo $continue; ?>" class="btn btn-primary"><?php echo $button_continue; ?></a></div>
       </div>

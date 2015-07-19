@@ -501,7 +501,8 @@ footer h5 {
 	font-size: 12px;
 	border: 1px solid #cccccc;
 	border-radius: 0px;
-	box-shadow: inset 0 1px 0 rgba(255,255,255,.2), 0 1px 2px rgba(0,0,0,.05);
+	box-shadow: none;
+	text-transform: uppercase;
 }
 .btn-xs {
 	font-size: 9px;
@@ -528,10 +529,10 @@ footer h5 {
 .btn-default {
 	color: #777;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-	background-color: #e7e7e7;
-	background-image: linear-gradient(to bottom, #eeeeee, #dddddd);
+	background-color: #e7e7e7;	
 	background-repeat: repeat-x;
-	border-color: #dddddd #dddddd #b3b3b3 #b7b7b7;
+	border-color: #dddddd #dddddd #dddddd #dddddd;
+	box-shadow: none;
 }
 .btn-primary {
 	color: #ffffff;
@@ -942,6 +943,45 @@ h2.price {
 	text-shadow: none;
 	background-color: #4C6E28;
 	border: none;
+}
+
+.pagination-wrapper {
+	margin: 30px 0 0 0;
+	padding-top: 10px;
+	border-top: 1px solid #F0F0F0;
+}
+
+.search-filter {	
+}
+.search-filter ul {
+	padding-left: 15px;
+}
+.search-filter ul a {
+	font-size: 13px;
+	font-weight: bold;
+}
+
+/*Heading*/
+#content > h2 {
+	margin: 5px 0 15px 0;
+  	text-transform: uppercase;
+  	font-size: 20px;
+  	font-weight: 600;
+}
+
+.compare-tool {
+	text-align: right;
+}
+.compare-tool > a {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+.product-view-options {
+	margin: 0 0 10px 0;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #F0F0F0;
 }
 
 #slideshow_homepage {

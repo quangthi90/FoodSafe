@@ -13,7 +13,39 @@
     <?php } else { ?>
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
-    <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
+    <div id="content" class="<?php echo $class; ?>">
+
+    <!-- Start Banners -->
+    <div id="slideshow_homepage" style="margin-bottom: 20px;">
+      <div class="item">
+        <img src="image/catalog/demo/banners/banner1.jpg" alt="dasf" class="img-responsive" />
+      </div>
+      <div class="item">
+        <img src="image/catalog/demo/banners/banner2.jpg" alt="dasf" class="img-responsive" />
+      </div>
+      <div class="item">
+        <img src="image/catalog/demo/banners/banner3.jpg" alt="dasf" class="img-responsive" />
+      </div>
+      <div class="item">
+        <img src="image/catalog/demo/banners/banner4.jpg" alt="dasf" class="img-responsive" />
+      </div>
+      <div class="item">
+        <img src="image/catalog/demo/banners/banner5.jpg" alt="dasf" class="img-responsive" />
+      </div>
+    </div>
+    <script type="text/javascript">
+        $('#slideshow_homepage').owlCarousel({
+          items: 6,
+          autoPlay: 5000,
+          singleItem: true,
+          navigation: true,
+          navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+          pagination: false
+        });
+    </script> 
+    <!-- End banners -->
+
+    <?php echo $content_top; ?>
       <h2><?php echo $heading_title; ?></h2>
       <?php if ($thumb || $description) { ?>
       <div class="row">
@@ -27,34 +59,37 @@
       <hr>
       <?php } ?>
       <?php if ($categories) { ?>
-      <h3><?php echo $text_refine; ?></h3>
-      <?php if (count($categories) <= 5) { ?>
-      <div class="row">
-        <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
+      <div class="search-filter">
+        <h3><?php echo $text_refine; ?></h3>
+        <?php if (count($categories) <= 5) { ?>
+        <div class="row">
+          <div class="col-sm-12">
+            <ul>
+              <?php foreach ($categories as $category) { ?>
+              <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+              <?php } ?>
+            </ul>
+          </div>
         </div>
-      </div>
-      <?php } else { ?>
-      <div class="row">
-        <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
-        <div class="col-sm-3">
-          <ul>
-            <?php foreach ($categories as $category) { ?>
-            <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
-            <?php } ?>
-          </ul>
+        <?php } else { ?>
+        <div class="row">
+          <?php foreach (array_chunk($categories, ceil(count($categories) / 4)) as $categories) { ?>
+          <div class="col-sm-3">
+            <ul>
+              <?php foreach ($categories as $category) { ?>
+              <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
+              <?php } ?>
+            </ul>
+          </div>
+          <?php } ?>
         </div>
         <?php } ?>
-      </div>
-      <?php } ?>
-      <?php } ?>
+        <hr>
+        <?php } ?>
+        </div>      
       <?php if ($products) { ?>
-      <p><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
-      <div class="row">
+      <p class="compare-tool"><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
+      <div class="row product-view-options">
         <div class="col-md-2">
           <div class="btn-group hidden-xs">
             <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="<?php echo $button_list; ?>"><i class="fa fa-th-list"></i></button>
@@ -137,7 +172,7 @@
           </div>
         <?php } ?>
       </div>
-      <div class="row">
+      <div class="row pagination-wrapper">
         <div class="col-sm-6 text-left"><?php echo $pagination; ?></div>
         <div class="col-sm-6 text-right"><?php echo $results; ?></div>
       </div>
