@@ -14,37 +14,6 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>">
-
-    <!-- Start Banners -->
-    <div id="slideshow_homepage" style="margin-bottom: 20px;">
-      <div class="item">
-        <img src="image/catalog/demo/banners/banner1.jpg" alt="dasf" class="img-responsive" />
-      </div>
-      <div class="item">
-        <img src="image/catalog/demo/banners/banner2.jpg" alt="dasf" class="img-responsive" />
-      </div>
-      <div class="item">
-        <img src="image/catalog/demo/banners/banner3.jpg" alt="dasf" class="img-responsive" />
-      </div>
-      <div class="item">
-        <img src="image/catalog/demo/banners/banner4.jpg" alt="dasf" class="img-responsive" />
-      </div>
-      <div class="item">
-        <img src="image/catalog/demo/banners/banner5.jpg" alt="dasf" class="img-responsive" />
-      </div>
-    </div>
-    <script type="text/javascript">
-        $('#slideshow_homepage').owlCarousel({
-          items: 6,
-          autoPlay: 5000,
-          singleItem: true,
-          navigation: true,
-          navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
-          pagination: false
-        });
-    </script> 
-    <!-- End banners -->
-
     <?php echo $content_top; ?>
       <h2><?php echo $heading_title; ?></h2>
       <?php if ($thumb || $description) { ?>
@@ -85,8 +54,8 @@
         </div>
         <?php } ?>
         <hr>
-        <?php } ?>
-        </div>      
+      </div>
+      <?php } ?>        
       <?php if ($products) { ?>
       <p class="compare-tool"><a href="<?php echo $compare; ?>" id="compare-total"><?php echo $text_compare; ?></a></p>
       <div class="row product-view-options">
