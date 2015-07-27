@@ -67,6 +67,100 @@
 		</operation>
 	</file>
 
-	
+	<file name="catalog/controller/common/column_left.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'json':
+							$setting_info['part'] = $part;
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+						
+						default:
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/column_right.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'json':
+							$setting_info['part'] = $part;
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+						
+						default:
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/content_bottom.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'json':
+							$setting_info['part'] = $part;
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+						
+						default:
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/content_top.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'json':
+							$setting_info['part'] = $part;
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+						
+						default:
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+	</file>
 
 </modification>
