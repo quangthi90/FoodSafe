@@ -18,13 +18,13 @@
 				public function __construct
 			]]></search>
 			<add><![CDATA[
-				$folder = 'controller';
-				if ($is_api) $folder = 'api';
+				$folder = DIR_APPLICATION . 'controller';
+				if ($is_api) $folder = DIR_API . 'controller';
 			]]></add>
 		</operation>
 		<operation>
 			<search position="replace"><![CDATA[
-				'controller/'
+				DIR_APPLICATION . 'controller/'
 			]]></search>
 			<add><![CDATA[$folder . '/']]></add>
 		</operation>

@@ -15,7 +15,7 @@
 				} elseif (!empty($module_info) && !empty($module_info['type'])) {
 					$data['type'] = $module_info['type'];
 				} else {
-					$data['type'] = 'html';
+					$data['type'] = 'default';
 				}
 			]]></add>
 		</operation>
@@ -58,8 +58,9 @@
 		            <label class="col-sm-2 control-label" for="input-type"><?php echo $entry_type; ?></label>
 		            <div class="col-sm-10">
 		              <select name="type" id="input-type" class="form-control">
-		                <option value="html" <?php if ($type == 'html') { ?>selected="selected"<?php } ?>>html</option>
-		                <option value="json" <?php if ($type == 'json') { ?>selected="selected"<?php } ?>>json</option>
+		                <option value="default" <?php if ($type == 'default') { ?>selected="selected"<?php } ?>>default</option>
+		                <option value="tabs" <?php if ($type == 'tabs') { ?>selected="selected"<?php } ?>>tabs</option>
+		                <option value="list" <?php if ($type == 'list') { ?>selected="selected"<?php } ?>>list</option>
 		              </select>
 		            </div>
 		        </div>
@@ -75,13 +76,15 @@
 			<add><![CDATA[
 				if (!empty($setting_info['type'])) {
 					switch ($setting_info['type']) {
-						case 'json':
-							$setting_info['part'] = $part;
-							$data['modules'][] = $this->load->api('common/module', $setting_info);
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
 							break;
 						
 						default:
-							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
 							break;
 					}
 				} else {
@@ -99,13 +102,15 @@
 			<add><![CDATA[
 				if (!empty($setting_info['type'])) {
 					switch ($setting_info['type']) {
-						case 'json':
-							$setting_info['part'] = $part;
-							$data['modules'][] = $this->load->api('common/module', $setting_info);
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
 							break;
 						
 						default:
-							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
 							break;
 					}
 				} else {
@@ -123,13 +128,15 @@
 			<add><![CDATA[
 				if (!empty($setting_info['type'])) {
 					switch ($setting_info['type']) {
-						case 'json':
-							$setting_info['part'] = $part;
-							$data['modules'][] = $this->load->api('common/module', $setting_info);
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
 							break;
 						
 						default:
-							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
 							break;
 					}
 				} else {
@@ -147,13 +154,15 @@
 			<add><![CDATA[
 				if (!empty($setting_info['type'])) {
 					switch ($setting_info['type']) {
-						case 'json':
-							$setting_info['part'] = $part;
-							$data['modules'][] = $this->load->api('common/module', $setting_info);
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
 							break;
 						
 						default:
-							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
 							break;
 					}
 				} else {

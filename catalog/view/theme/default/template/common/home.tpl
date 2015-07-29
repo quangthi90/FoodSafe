@@ -122,7 +122,7 @@
             <!-- End TOP Products -->
             <div class="separator-line" style="height: 30px;"></div>
             <!-- Start Product Block -->
-            <div class="tabs product-block" id="product-tabs">
+            <!--div class="tabs product-block" id="product-tabs">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab-prod-lastest" data-toggle="tab" aria-expanded="true">Sản phẩm mới</a></li>
                     <li class=""><a href="#tab-prod-bestseller" data-toggle="tab" aria-expanded="false">Bán chạy</a></li>
@@ -231,7 +231,7 @@
                         <?php } ?>
                     </div>
                 </div>                        
-            </div>
+            </div-->
             <!-- End Product Block -->
             <div class="separator-line" style="height: 30px;"></div>
             <!-- Start Product Category Block -->
