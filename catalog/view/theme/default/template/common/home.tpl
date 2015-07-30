@@ -11,87 +11,9 @@
         <?php //} ?>
         <div id="content" class="col-sm-9">
             <?php echo $content_top; ?>
-            <!-- Start TOP Products -->
-            
-            <!-- End TOP Products -->
             <div class="separator-line" style="height: 30px;"></div>
             <div class="separator-line" style="height: 30px;"></div>
-            <!-- Start Product Category Block -->
-            <div class="tabs product-block product-category-block">
-                <ul class="nav nav-tabs">
-                    <li class="active"><a href="#tab-prod-cat-01" data-toggle="tab" aria-expanded="true">Lương Thực</a></li>
-                    <li class=""><a href="#tab-prod-cat-05" data-toggle="tab" aria-expanded="false">Hoa Cây Cảnh</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab-prod-cat-01">
-                        <?php for ($j=0; $j < 2; $j++) { ?>
-                            <div class="row products">
-                                <?php for ($i=0; $i < 4; $i++) { ?>
-                                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 product">
-                                        <div class="pro-img">
-                                            <a href="#"> 
-                                                <img class="img-responsive" src="http://thitruongnongnghiep.vn/Portals/0/SanPham/gao-dai-loan-eximfood-j140905121335568.jpg">
-                                            </a>
-                                        </div>                                                                      
-                                        <div class="pro-price">15.000 đ</div>
-                                        <div class="pro-name"><a href="#">Gao <?php echo ($i + 1); ?></a></div>
-                                        <div class="pro-sta">
-                                            <div class="row">
-                                                <div class="col-xs-4 s-item">
-                                                    <i class="fa fa-shopping-cart"></i> 
-                                                    <span class="pro-number">212</span>
-                                                </div>
-                                                <div class="col-xs-4 s-item">
-                                                    <i class="fa fa-eye"></i> 
-                                                    <span class="pro-number">3k</span>
-                                                </div>
-                                                <div class="col-xs-4 s-item">
-                                                    <i class="fa fa-user"></i>
-                                                    <span class="pro-number">20</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        <?php } ?> 
-                    </div>
-                    <div class="tab-pane" id="tab-prod-cat-05">
-                        <?php for ($j=0; $j < 2; $j++) { ?>
-                            <div class="row products">
-                                <?php for ($i=0; $i < 4; $i++) { ?>
-                                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 product">
-                                        <div class="pro-img">
-                                            <a href="#"> 
-                                                <img class="img-responsive" src="http://thitruongnongnghiep.vn/Portals/0/SanPham/lan-vani-khong-la-j141007105631921.jpg">
-                                            </a>
-                                        </div>                                                                      
-                                        <div class="pro-price">185.000 đ</div>
-                                        <div class="pro-name"><a href="#">Hoa Lan <?php echo ($i + 1); ?></a></div>
-                                        <div class="pro-sta">
-                                            <div class="row">
-                                                <div class="col-xs-4 s-item">
-                                                    <i class="fa fa-shopping-cart"></i> 
-                                                    <span class="pro-number">212</span>
-                                                </div>
-                                                <div class="col-xs-4 s-item">
-                                                    <i class="fa fa-eye"></i> 
-                                                    <span class="pro-number">3k</span>
-                                                </div>
-                                                <div class="col-xs-4 s-item">
-                                                    <i class="fa fa-user"></i>
-                                                    <span class="pro-number">20</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        <?php } ?> 
-                    </div>
-                </div>  
-            </div>
-            <!-- End Product Category Block -->
+            <?php echo $categories; ?>
             <div class="separator-line" style="height: 30px;"></div>            
             <!-- Start Shops Block -->
             <div class="product-block shops-list" id="top-shops-list">

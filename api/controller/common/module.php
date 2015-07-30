@@ -15,7 +15,8 @@ class ControllerCommonModule extends Controller {
 						
 						if ($setting_info && $setting_info['status'] && $setting_info['type'] == 'tabs') {
 							$setting_info['is_system_call'] = true;
-							$data['modules'][] = $this->load->api('module/' . $part[0], $setting_info);
+							$data['modules'][$key] = $this->load->api('module/' . $part[0], $setting_info);
+							$data['modules'][$key]['code'] = str_replace('.', '', $setting['modules'][$key]['code']);
 							unset($setting['modules'][$key]);
 						}
 					}

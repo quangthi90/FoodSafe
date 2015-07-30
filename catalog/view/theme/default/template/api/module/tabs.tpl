@@ -1,12 +1,12 @@
 <div class="tabs product-block" id="product-tabs">
     <ul class="nav nav-tabs">
-    <?php foreach ($modules as $key => $module) { ?>
-        <li <?php if ($key == 0) { ?>class="active"<?php } ?>><a href="#tab-products-<?php echo $key; ?>" data-toggle="tab" aria-expanded="<?php if ($key == 0) echo 'true'; else echo 'false'; ?>"><?php echo $module['heading_title']; ?></a></li>
+    <?php $i = 0; foreach ($modules as $module) { ?>
+        <li <?php if ($i++ == 0) { ?>class="active"<?php } ?>><a href="#<?php echo $module['code']; ?>" data-toggle="tab" aria-expanded="<?php if ($key == 0) echo 'true'; else echo 'false'; ?>"><?php echo $module['heading_title']; ?></a></li>
     <?php } ?>
     </ul>
     <div class="tab-content">
-    <?php foreach ($modules as $key => $module) { ?>
-        <div class="tab-pane <?php if ($key == 0) {?>active<?php } ?>" id="tab-products-<?php echo $key; ?>">
+    <?php $i = 0; foreach ($modules as $module) { ?>
+        <div class="tab-pane <?php if ($i++ == 0) {?>active<?php } ?>" id="<?php echo $module['code']; ?>">
             <div class="row products">
             <?php foreach ($module['products'] as $product) { ?>
                 <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 product">
