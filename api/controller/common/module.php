@@ -1,7 +1,7 @@
 <?php
 class ControllerCommonModule extends Controller {
 	public function index($setting) {
-		$data = array();
+		$data = array('modules' => array());
 
 		switch ($setting['type']) {
 			case 'tabs':
@@ -19,14 +19,14 @@ class ControllerCommonModule extends Controller {
 							unset($setting['modules'][$key]);
 						}
 					}
-
-					if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/tabs.tpl')) {
-						return $this->load->view($this->config->get('config_template') . '/template/api/module/tabs.tpl', $data);
-					} else {
-						return $this->load->view('default/template/api/module/tabs.tpl', $data);
-					}
 				}
-			
+				
+				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/tabs.tpl')) {
+					return $this->load->view($this->config->get('config_template') . '/template/api/module/tabs.tpl', $data);
+				} else {
+					return $this->load->view('default/template/api/module/tabs.tpl', $data);
+				}
+
 			default:
 				# code...
 				break;
