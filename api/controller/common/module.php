@@ -20,7 +20,7 @@ class ControllerCommonModule extends Controller {
 						}
 					}
 				}
-				
+
 				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/tabs.tpl')) {
 					return $this->load->view($this->config->get('config_template') . '/template/api/module/tabs.tpl', $data);
 				} else {
@@ -29,6 +29,16 @@ class ControllerCommonModule extends Controller {
 
 			default:
 				# code...
+				if ($setting['status']) {
+					$setting['is_system_call'] = true;
+					$data = $this->load->api('module/' . $setting['part'][0], $setting);
+				}
+
+				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/carousel.tpl')) {
+					return $this->load->view($this->config->get('config_template') . '/template/api/module/carousel.tpl', $data);
+				} else {
+					return $this->load->view('default/template/api/module/carousel.tpl', $data);
+				}
 				break;
 		}
 	}
