@@ -1,0 +1,40 @@
+<modification>
+	<id>UPDATE MAIN HOMEPAGE</id>
+	<version>1.4.x and 1.5.x</version>
+	<vqmver required="true">2.4.0</vqmver>
+	<author>lqthi.khtn@gmail.com</author>
+
+	<file name="catalog/controller/common/home.php">
+		<operation>
+			<search position="before"><![CDATA[
+				$data['column_left'] = $this->load->controller('common/column_left');
+			]]></search>
+			<add><![CDATA[
+				$this->load->model('catalog/category');
+
+				$categories = $this->model_catalog_category->getCategories();
+
+				$cat_data['modules'] = array();
+
+				foreach ($categories as $key => $category) {
+					# code...
+					if ($key == 5) break;
+
+					$cat_data['modules'][$key] =  $this->load->api('product/category', array(
+						'limit' => $this->limit,
+						'category_id' => $category['category_id'],
+						'is_system_call' => true
+					));
+					$cat_data['modules'][$key]['code'] = 'category' . $category['category_id'];
+				}
+
+				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/tabs.tpl')) {
+					$data['categories'] = $this->load->view($this->config->get('config_template') . '/template/api/module/tabs.tpl', $cat_data);
+				} else {
+					$data['categories'] = $this->load->view('default/template/api/module/tabs.tpl', $cat_data);
+				}
+			]]></add>
+		</operation>
+	</file>
+
+</modification>

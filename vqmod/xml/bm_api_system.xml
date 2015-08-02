@@ -1,0 +1,48 @@
+<modification>
+	<id>SUPPORT API FOR SYSTEM</id>
+	<version>1.4.x and 1.5.x</version>
+	<vqmver required="true">2.4.0</vqmver>
+	<author>lqthi.khtn@gmail.com</author>
+
+	<file name="system/engine/action.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				public function __construct($route, $args = array()) {
+			]]></search>
+			<add><![CDATA[
+				public function __construct($route, $args = array(), $is_api = false) {
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+				public function __construct
+			]]></search>
+			<add><![CDATA[
+				$folder = DIR_APPLICATION . 'controller';
+				if ($is_api) $folder = DIR_API . 'controller';
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				DIR_APPLICATION . 'controller/'
+			]]></search>
+			<add><![CDATA[$folder . '/']]></add>
+		</operation>
+	</file>
+
+	<file name="system/engine/loader.php">
+		<operation>
+			<search position="before"><![CDATA[
+				public function model($model) {
+			]]></search>
+			<add><![CDATA[
+				public function api($route, $args = array()) {
+					$action = new Action($route, $args, true);
+
+					return $action->execute($this->registry);
+				}
+			]]></add>
+		</operation>
+	</file>
+
+</modification>
