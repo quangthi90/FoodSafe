@@ -152,7 +152,9 @@
       <div class="col-md-2" style="padding-right: 0;">
         <nav id="menu" class="navbar">          
           <ul class="nav navbar-nav">
+              <?php $i = 0; ?>
               <?php foreach ($categories as $category) { ?>
+              <?php if ($i++ == 7) break; ?>
               <?php if ($category['children']) { ?>
               <li class="dropdown">
                 <a href="<?php echo $category['href']; ?>" class="dropdown-toggle" data-toggle="dropdown"><?php echo $category['name']; ?></a>
