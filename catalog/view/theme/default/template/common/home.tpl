@@ -9,6 +9,11 @@
         <?php //} else { ?>
         <?php //$class = 'col-sm-12'; ?>
         <?php //} ?>
+
+        <!-- Start Category Slide Show -->
+            <?php echo $categories_slideshow; ?>             
+        <!-- End Category Slide Show -->
+        
         <div id="content" class="col-sm-9">
             <?php echo $content_top; ?>
             <?php echo $categories; ?>          

@@ -835,6 +835,12 @@ h2.price {
 }
 
 /* Start Custom*/
+.none-padding-left {
+	padding-left: 0 !important;
+}
+.none-padding-right {
+	padding-left: 0 !important;
+}
 .text-bold {
 	font-weight: bold;
 }
@@ -850,6 +856,13 @@ h2.price {
 .divider-line {
 	height: 25px;
 	width: 100%;
+}
+.slideshow-simple {
+	border: none !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	border-radius: 0 !important;
+  	box-shadow: none !important;  	
 }
 
 .btn > i {
@@ -909,18 +922,6 @@ h2.price {
   	border-right: none;
   	border-top: none;
   	pointer-events: none;
-}
-
-#slideshow_homepage {
-	border: none;
-	padding: 0;
-	border-radius: 0;
-	-webkit-border-radius: 0;
-	-moz-border-radius: 0;
-  	box-shadow: none;
-  	-webkit-box-shadow: none;
-  	-moz-box-shadow: 0;
-  	margin: 0;
 }
 
 .product-block {
@@ -1107,65 +1108,21 @@ h2.price {
 	margin-left: 5px;
 }
 
-@media (max-width: 767px) {
-	#menu {
-		height: inherit;
-	}
+.category-slideshow-container {
+}	
+.category-slideshow-container .navbar-collapse {
 }
-
-@media (max-width: 767px) {
-	#menu .navbar-header {
-		float: left;	
-	}
-	
-	#menu .navbar-nav > li > .dropdown-menu h4.dropdown-inner-header {
-		display: none;
-	}
+.category-slideshow-container .navbar-nav {
 }
-@media (min-width: 768px) {
-	#menu {
-		height: 428px;
-	}
-	#menu .navbar-header {
-		float: none;	
-	}	
-	#menu .navbar-collapse {
-		padding: 0;
-	}
-	#menu .navbar-nav {
-		width: 100%;
-	}
-	#menu .navbar-nav > li {
-		display: block;
-		float: none;
-		position: static;
-		border-bottom: 1px solid #AFDBA2;
-	}
-	#menu .navbar-nav > li a {
-		text-transform: capitalize;
-	}
-	#menu .navbar-nav > li > .dropdown-menu {
-		top: -2px;
-		left: 100%;
-		bottom: -2px;
-		margin-left: 0 !important;
-	}
-	#menu .navbar-nav > li > .dropdown-menu .dropdown-inner-header {
-		display: table-caption;
-		padding: 10px;
-		border-bottom: 1px solid #F0F0F0;
-		margin: 0;
-		white-space: nowrap;
-		text-transform: uppercase;
-		font-size: 13px;
-		margin-bottom: 10px;
-		font-weight: bold;
-	}
-	#menu .navbar-nav > li > .dropdown-menu li a:hover {
-		background-color: transparent;
-		background-image: none;
-		color: #7EAE4A;
-	}
+.category-slideshow-container .navbar-nav > li {
+}
+.category-slideshow-container .navbar-nav > li a {
+}
+.category-slideshow-container .navbar-nav > li > .dropdown-menu {
+}
+.category-slideshow-container .navbar-nav > li > .dropdown-menu .dropdown-inner-header {
+}
+.category-slideshow-container  .navbar-nav > li > .dropdown-menu li a:hover {
 }
 
 #top-products .products .product {
