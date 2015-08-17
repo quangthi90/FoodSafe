@@ -123,12 +123,7 @@ class ControllerProductSearch extends Controller {
 			'href' => $this->url->link('product/search', $url)
 		);
 
-		if (isset($this->request->get['search'])) {
-			$data['heading_title'] = $this->language->get('heading_title') .  ' - ' . $this->request->get['search'];
-		} else {
-			$data['heading_title'] = $this->language->get('heading_title');
-		}
-
+		$data['heading_title'] = $this->language->get('heading_title');
 		$data['text_empty'] = $this->language->get('text_empty');
 		$data['text_search'] = $this->language->get('text_search');
 		$data['text_keyword'] = $this->language->get('text_keyword');

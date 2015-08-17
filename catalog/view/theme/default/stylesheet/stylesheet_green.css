@@ -2,7 +2,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
 	color: #666;
-	font-size: 12px;
+	font-size: 13px;
 	line-height: 20px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -43,17 +43,17 @@ legend {
 	padding: 7px 0px
 }
 label {
-	font-size: 12px;
+	font-size: 13px;
 	font-weight: normal;
 }
 select.form-control, textarea.form-control, input[type="text"].form-control, input[type="password"].form-control, input[type="datetime"].form-control, input[type="datetime-local"].form-control, input[type="date"].form-control, input[type="month"].form-control, input[type="time"].form-control, input[type="week"].form-control, input[type="number"].form-control, input[type="email"].form-control, input[type="url"].form-control, input[type="search"].form-control, input[type="tel"].form-control, input[type="color"].form-control {
-	font-size: 12px;
+	font-size: 13px;
 }
 .input-group input, .input-group select, .input-group .dropdown-menu, .input-group .popover {
-	font-size: 12px;
+	font-size: 13px;
 }
 .input-group .input-group-addon {
-	font-size: 12px;
+	font-size: 13px;
 	height: 30px;
 }
 
