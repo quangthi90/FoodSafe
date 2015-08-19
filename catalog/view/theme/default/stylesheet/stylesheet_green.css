@@ -1268,6 +1268,30 @@ h2.price {
 	margin-bottom: 0px;
 }
 
-
+.account-block {
+	margin-bottom: 20px;	
+}
+.account-block > h3 {
+	text-transform: uppercase;
+	font-weight: bold;
+	border-bottom: 1px solid #f0f0f0;
+	font-size: 16px;
+	padding: 0 0 5px 0px;
+	margin-bottom: 5px;
+}
+.account-block ul {
+    padding-left: 25px;
+    list-style: square;	
+}
+.account-block ul li {
+    padding: 3px 0px;	
+}
+.account-block ul li a {	
+	color: #444;
+	font-size: 14px;
+}
+.account-block ul li a:hover {	
+	color: #7eae4a;
+}
 
 /* End Custom*/
