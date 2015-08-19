@@ -29,11 +29,11 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?>
+      <h2><?php echo $heading_title; ?>
         <?php if ($weight) { ?>
         &nbsp;(<?php echo $weight; ?>)
         <?php } ?>
-      </h1>
+      </h2>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
         <div class="table-responsive">
           <table class="table table-bordered">
