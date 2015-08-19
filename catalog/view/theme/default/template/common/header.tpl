@@ -102,13 +102,13 @@
           <i class="fa fa-bars"></i> Sản phẩm
           </button>
         </div>
-        <div class="col-sm-5">
+        <div class="col-sm-4">
           <?php echo $search; ?>
         </div>
         <div class="col-sm-2">
           <?php echo $cart; ?>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <ul class="list-inline user-menu">
             <?php if (!$logged) { ?>
               <li><a href="<?php echo $register; ?>" title="<?php echo $text_register; ?>"><i class="fa fa-user-plus"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_register; ?></span></a></li>
