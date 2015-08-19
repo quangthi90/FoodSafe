@@ -854,6 +854,9 @@ h2.price {
 .margin-top-5x {
 	margin-top: 5px;
 }
+.text-upper {
+	text-transform: uppercase;
+}
 
 .text-bold {
 	font-weight: bold;

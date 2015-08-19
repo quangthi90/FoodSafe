@@ -14,35 +14,37 @@
     <?php $class = 'col-sm-12'; ?>
     <?php } ?>
     <div id="content" class="<?php echo $class; ?>"><?php echo $content_top; ?>
-      <h1><?php echo $heading_title; ?></h1>
-      <h3><?php echo $text_location; ?></h3>
+      <h2><?php echo $heading_title; ?></h2>
+      <h3 class="hidden"><?php echo $text_location; ?></h3>
       <div class="panel panel-default">
         <div class="panel-body">
-          <div class="row">
+          <div class="row" style="margin-bottom: 20px;">
             <?php if ($image) { ?>
-            <div class="col-sm-3"><img src="<?php echo $image; ?>" alt="<?php echo $store; ?>" title="<?php echo $store; ?>" class="img-thumbnail" /></div>
+            <div class="col-sm-3">
+              <img src="<?php echo $image; ?>" alt="<?php echo $store; ?>" title="<?php echo $store; ?>" class="img-thumbnail" style="border: none;" />
+            </div>
             <?php } ?>
-            <div class="col-sm-3"><strong><?php echo $store; ?></strong><br />
+            <div class="col-sm-9"><strong><?php echo $store; ?></strong><br />
               <address>
               <?php echo $address; ?>
               </address>
               <?php if ($geocode) { ?>
               <a href="https://maps.google.com/maps?q=<?php echo urlencode($geocode); ?>&hl=en&t=m&z=15" target="_blank" class="btn btn-info"><i class="fa fa-map-marker"></i> <?php echo $button_map; ?></a>
               <?php } ?>
-            </div>
-            <div class="col-sm-3"><strong><?php echo $text_telephone; ?></strong><br>
+            </div>            
+          </div>          
+          <div class="row">
+            <div class="col-sm-4 col-sm-offset-3"><strong><?php echo $text_telephone; ?></strong><br>
               <?php echo $telephone; ?><br />
-              <br />
               <?php if ($fax) { ?>
               <strong><?php echo $text_fax; ?></strong><br>
               <?php echo $fax; ?>
               <?php } ?>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-5">
               <?php if ($open) { ?>
               <strong><?php echo $text_open; ?></strong><br />
               <?php echo $open; ?><br />
-              <br />
               <?php } ?>
               <?php if ($comment) { ?>
               <strong><?php echo $text_comment; ?></strong><br />
@@ -102,7 +104,8 @@
       <?php } ?>
       <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" class="form-horizontal">
         <fieldset>
-          <h3><?php echo $text_contact; ?></h3>
+          <h3 class="text-upper"><?php echo $text_contact; ?></h3>
+          <div class="small-line" style="margin-bottom: 15px;"></div>
           <div class="form-group required">
             <label class="col-sm-2 control-label" for="input-name"><?php echo $entry_name; ?></label>
             <div class="col-sm-10">
@@ -145,8 +148,8 @@
             </div>
           </div>
         </fieldset>
-        <div class="buttons">
-          <div class="pull-right">
+        <div class="row buttons">
+          <div class="col-sm-10 col-sm-offset-2" style="padding-left: 5px;">
             <input class="btn btn-primary" type="submit" value="<?php echo $button_submit; ?>" />
           </div>
         </div>
