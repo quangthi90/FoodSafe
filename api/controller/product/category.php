@@ -71,6 +71,7 @@ class ControllerProductCategory extends Controller {
 			// $this->document->addLink($this->url->link('product/category', 'path=' . $this->request->get['path']), 'canonical');
 
 			$data['heading_title'] = $category_info['name'];
+			$data['href'] = $this->url->link('product/category', 'path=' . $category_id);
 
 			$data['text_refine'] = $this->language->get('text_refine');
 			$data['text_empty'] = $this->language->get('text_empty');
@@ -123,20 +124,20 @@ class ControllerProductCategory extends Controller {
 			if (isset($this->request->get['limit'])) {
 				$url .= '&limit=' . $this->request->get['limit'];
 			}
+			// Category Level 2
+			$data['children'] = array();
 
-			$data['categories'] = array();
+			$child_categories = $this->model_catalog_category->getCategories($category_id);
 
-			$results = $this->model_catalog_category->getCategories($category_id);
-
-			foreach ($results as $result) {
+			foreach ($child_categories as $child_category) {
 				$filter_data = array(
-					'filter_category_id'  => $result['category_id'],
+					'filter_category_id'  => $child_category['category_id'],
 					'filter_sub_category' => true
 				);
 
-				$data['categories'][] = array(
-					'name'  => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-					// 'href'  => $this->url->link('product/category', 'path=' . $this->request->get['path'] . '_' . $result['category_id'] . $url)
+				$data['children'][] = array(
+					'name'  => $child_category['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
+					'href'  => $this->url->link('product/category', 'path=' . $child_category['category_id'] . '_' . $result['category_id'])
 				);
 			}
 

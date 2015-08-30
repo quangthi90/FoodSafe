@@ -1,20 +1,22 @@
-<?php $i = 0; foreach ($modules as $module) { ?>
+<?php foreach ($modules as $module) { ?>
 <div class="product-block product-in-category-block" id="category-<?php echo $module['code']; ?>">    
     <div class="category-header">
         <i class="fa fa-shopping-cart category-icon"></i>
-        <a class="category-name" href="#"><?php echo $module['heading_title']; ?></a>        
+        <a class="category-name" href="<?php echo $module['href']; ?>"><?php echo $module['heading_title']; ?></a>        
     </div>
     <div class="row">
         <div class="col-sm-3">
+            <?php if(!empty($module['children'])) { ?>
             <div class="sub-categories">
                 <ul class="list-unstyled">
-                    <?php for($i = 0; $i  < 5; $i ++) { ?>
+                    <?php foreach ($module['children'] as $children) { ?>
                     <li>
-                        <a href="#">Sub Product Category <?php echo $i; ?></a>
+                        <a href="<?php echo $children['href']; ?>"><?php echo $children['name']; ?></a>
                     </li>
                     <?php } ?>
                 </ul>
             </div>
+            <?php } ?>
             <div class="category-images hidden">
                 <img class="img-responsive" src="http://media.vatgia.vn/banners/ujj1438596142.jpg" alt="ad1">
                 <img class="img-responsive" src="http://media.vatgia.vn/banners/tgh1437551895.jpg" alt="ad1">
