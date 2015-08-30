@@ -54,22 +54,22 @@ class ControllerCommonHome extends Controller {
 		$category_banners[] = array(
 			'title' => 'Slide 1',
 			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner1.jpg')
+			'image' => 'image/catalog/demo/banners/banner1.jpg'
 		);
 		$category_banners[] = array(
 			'title' => 'Slide 2',
 			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner2.jpg')
+			'image' => 'image/catalog/demo/banners/banner2.jpg'
 		);
 		$category_banners[] = array(
 			'title' => 'Slide 3',
 			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner3.jpg')
+			'image' => 'image/catalog/demo/banners/banner3.jpg'
 		);
 		$category_banners[] = array(
 			'title' => 'Slide 4',
 			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner4.jpg')
+			'image' => 'image/catalog/demo/banners/banner4.jpg'
 		);
 		$viewData = array(
 			'category_data' => $categories_data, 
