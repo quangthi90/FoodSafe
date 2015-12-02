@@ -131,7 +131,7 @@
         <div class="row">
           <div class="col-sm-9">
             <ul class="list-inline links">
-              <li><a href="#" title="<?php echo $text_news; ?>"><i class="fa fa-newspaper-o"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_news; ?></span></a></li>
+              <li><a href="<?php echo $news; ?>" title="<?php echo $text_news; ?>"><i class="fa fa-newspaper-o"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_news; ?></span></a></li>
               <li><a href="#" title="<?php echo $text_contact; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shops; ?></span></a></li>
               <li><a href="<?php echo $contact; ?>" title="<?php echo $text_contact; ?>"><i class="fa fa-phone"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_contact; ?></span></a></li>
             </ul>
