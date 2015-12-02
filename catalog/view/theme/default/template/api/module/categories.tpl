@@ -18,9 +18,11 @@
             </div>
             <?php } ?>
             <div class="category-images hidden">
-                <img class="img-responsive" src="http://media.vatgia.vn/banners/ujj1438596142.jpg" alt="ad1">
-                <img class="img-responsive" src="http://media.vatgia.vn/banners/tgh1437551895.jpg" alt="ad1">
-                <img class="img-responsive" src="http://media.vatgia.vn/banners/hwt1437619104.jpg" alt="ad1">
+            <?php foreach ($module['children'] as $children) { ?>
+                <a href="<?php echo $children['href']; ?>">
+                    <img class="img-responsive" src="<?php echo $children['thumb']; ?>" alt="<?php echo $children['name']; ?>" title="<?php echo $children['name']; ?>">
+                </a>
+            <?php } ?>
             </div>
         </div>
         <div class="col-sm-9">

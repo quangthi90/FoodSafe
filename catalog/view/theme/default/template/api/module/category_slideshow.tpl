@@ -2,7 +2,7 @@
 <div class="category-slideshow-container">
   <div class="container">
     <div class="category-slideshow-list none-padding-right">
-      <ul class="category-list">
+      <ul class="category-list" style="height: 100%; border: 1px solid #cbf3a1;">
         <?php foreach ($category_data as $category) { ?>
         <?php if ($category['children']) { ?>
         <li class="root-category">
