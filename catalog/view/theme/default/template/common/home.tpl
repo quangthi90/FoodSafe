@@ -9,12 +9,14 @@
         <?php //} else { ?>
         <?php //$class = 'col-sm-12'; ?>
         <?php //} ?>
+
+        <!-- Start Category Slide Show -->
+            <?php echo $categories_slideshow; ?>             
+        <!-- End Category Slide Show -->
+        
         <div id="content" class="col-sm-9">
             <?php echo $content_top; ?>
-            <div class="separator-line" style="height: 30px;"></div>
-            <div class="separator-line" style="height: 30px;"></div>
-            <?php echo $categories; ?>
-            <div class="separator-line" style="height: 30px;"></div>            
+            <?php echo $categories; ?>          
             <!-- Start Shops Block -->
             <div class="product-block shops-list" id="top-shops-list">
                 <h3 class="heading">TOP Gian Hàng</h3>
@@ -34,10 +36,9 @@
                 <?php } ?>
             </div>
             <!-- End Shops Block -->
-            <div class="separator-line" style="height: 30px;"></div>
             <?php echo $content_bottom; ?>
         </div>
-        <div class="col-sm-3">            
+        <div class="col-sm-3">
             <div class="column-box">
                 <div class="tabs">
                     <ul class="nav nav-tabs">

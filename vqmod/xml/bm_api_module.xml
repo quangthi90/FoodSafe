@@ -28,10 +28,10 @@
 					$cat_data['modules'][$key]['code'] = 'category' . $category['category_id'];
 				}
 
-				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/tabs.tpl')) {
-					$data['categories'] = $this->load->view($this->config->get('config_template') . '/template/api/module/tabs.tpl', $cat_data);
+				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/categories.tpl')) {
+					$data['categories'] = $this->load->view($this->config->get('config_template') . '/template/api/module/categories.tpl', $cat_data);
 				} else {
-					$data['categories'] = $this->load->view('default/template/api/module/tabs.tpl', $cat_data);
+					$data['categories'] = $this->load->view('default/template/api/module/categories.tpl', $cat_data);
 				}
 			]]></add>
 		</operation>

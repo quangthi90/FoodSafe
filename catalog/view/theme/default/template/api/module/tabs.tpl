@@ -1,7 +1,11 @@
-<div class="tabs product-block" id="product-tabs">
+<div class="tabs product-block product-tabs">
     <ul class="nav nav-tabs">
     <?php $i = 0; foreach ($modules as $module) { ?>
-        <li <?php if ($i++ == 0) { ?>class="active"<?php } ?>><a href="#<?php echo $module['code']; ?>" data-toggle="tab" aria-expanded="<?php if ($key == 0) echo 'true'; else echo 'false'; ?>"><?php echo $module['heading_title']; ?></a></li>
+        <li <?php if ($i++ == 0) { ?>class="active"<?php } ?>>
+            <a href="#<?php echo $module['code']; ?>" data-toggle="tab">
+                <?php echo $module['heading_title']; ?>
+            </a>
+        </li>
     <?php } ?>
     </ul>
     <div class="tab-content">
