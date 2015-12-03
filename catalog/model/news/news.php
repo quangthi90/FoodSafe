@@ -29,7 +29,7 @@ class ModelNewsNews extends Model {
 		return $query->rows;
 	}
 	
-	public function getNewss($data = array()) {
+	public function getNewses($data = array()) {
 		$sql = "SELECT * FROM " . DB_PREFIX . "news n LEFT JOIN " . DB_PREFIX . "news_description nd ON (n.news_id = nd.news_id) LEFT JOIN " . DB_PREFIX . "news_to_store n2s ON (n.news_id = n2s.news_id)";
 		
 		if (!empty($data['filter_news_category_id'])) {

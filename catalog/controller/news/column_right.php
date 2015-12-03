@@ -1,12 +1,12 @@
 <?php
-class ControllerCommonColumnRight extends Controller {
+class ControllerNewsColumnRight extends Controller {
 	public function index() {
 		$this->load->model('design/layout');
 		
 		if (isset($this->request->get['route'])) {
 			$route = (string)$this->request->get['route'];
 		} else {
-			$route = 'common/home';
+			$route = 'news/home';
 		}
 
 		$layout_id = 0;
@@ -59,10 +59,10 @@ class ControllerCommonColumnRight extends Controller {
 			}
 		}
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/column_right.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/common/column_right.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/news/column_right.tpl')) {
+			return $this->load->view($this->config->get('config_template') . '/template/news/column_right.tpl', $data);
 		} else {
-			return $this->load->view('default/template/common/column_right.tpl', $data);
+			return $this->load->view('default/template/news/column_right.tpl', $data);
 		}
 	}
 }

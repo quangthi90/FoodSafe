@@ -9,33 +9,119 @@
         <?php //} else { ?>
         <?php //$class = 'col-sm-12'; ?>
         <?php //} ?>
-
-        <!-- Start Category Slide Show -->
-            <?php echo $categories_slideshow; ?>             
-        <!-- End Category Slide Show -->
         
         <div id="content" class="col-sm-9">
             <?php echo $content_top; ?>
-            <?php echo $categories; ?>          
-            <!-- Start Shops Block -->
-            <div class="product-block shops-list" id="top-shops-list">
-                <h3 class="heading">TOP Gian Hàng</h3>
-                <?php for ($j=0; $j < 2; $j++) { ?>
-                <div class="row shops">
-                    <?php for ($i=0; $i < 6; $i++) { ?>
-                        <div class="col-xs-12 col-sm-4 col-md-2 shop">
-                            <div class="shop-img" title="Đặc sản Phan Thiết - Công ty TNHH MTV Hải sản Phan Thiết">
-                                <img src="http://img4.wikia.nocookie.net/__cb20150308015108/logopedia/images/b/ba/CN_Fridays_logo_2003.svg" class="img-responsive" style="display: inline-block;">
+            <!-- Breadcrumb -->
+            <ul class="breadcrumb">
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php } ?>
+            </ul>
+            <!-- Hot news -->
+            <div class="nsl">
+                <?php $main_news = $hot_news[0]; ?>
+                <?php array_shift($hot_news); ?>
+                <div class="nsimg">
+                    <div class="nsimg1">
+                        <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><img alt="<?php echo $main_news['title']; ?>" src="<?php echo $main_news['image']; ?>"></a>
+                    </div>
+                </div>
+                <div class="ns0">
+                    <div class="ns1">
+                        <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><?php echo $main_news['title']; ?></a>
+                    </div>
+                    <div class="ns2">Thứ sáu, ngày 16/10/2015 3:49:00 CH</div>
+                    <div class="ns3"><?php echo $main_news['content']; ?></div>
+                </div>
+                <div class="ds0">
+                    <div class="dss">
+                        <ul class="hot-news">
+                            <?php foreach ($hot_news as $news) { ?>
+                            <li>
+                                <div class="climg">
+                                    <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>">
+                                        <img width="100%" height="96px" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>">
+                                    </a>
+                                </div>
+                                <div class="ds1">
+                                    <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>"><?php echo $news['title']; ?></a>
+                                </div>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                        <script type="text/javascript">
+                            $('.hot-news').owlCarousel({
+                                items: 3,
+                                autoPlay: false,
+                                singleItem: false,
+                                navigation: true,
+                                stopOnHover: true,
+                                rewindNav : false,
+                                navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                                pagination: false
+                            });
+                        </script>
+                    </div>
+                    <div class="clr"></div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <!-- Last news -->
+                <div id="dnn_NewsArc1" class="NewsArc1">
+                    <div class="newG">
+                        <div class="lht0">
+                            <span class="lht1">Tin tức tổng hợp</span>
+                        </div>
+                        <div class="lht3">
+                            <?php foreach ($hot_news as $news) { ?>
+                            <div class="lhoR">
+                                <div class="lhoR1"> 
+                                    <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>">
+                                        <img width="130px" height="105px" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>"> 
+                                    </a>
+                                </div>
+                                <div class="lhoR2">
+                                    <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
+                                </div>
+                                <div class="lhoR3"><?php echo $news['content']; ?></div>
                             </div>
-                            <div class="shop-name">
-                                <a href="#">Đặc sản Phan Thiết - Công ty TNHH MTV Hải sản Phan Thiết</a>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
+                <!-- News by Categories -->
+                <div id="dnn_NewsArc2" class="NewsArc2">
+                    <div class="ListTinT">
+                        <div class="titleBoxT">
+                            <span>Tin theo chuyên mục</span>
+                        </div>
+                        <?php foreach ($categories as $category) { ?>
+                        <div class="divTitleListT"><span class="iconCNN"></span> <?php echo $category['name']; ?> </div>
+                        <div class="divContentListT">
+                            <?php $first_news = $category['newses'][0]; ?>
+                            <?php array_shift($category['newses']); ?>
+                            <div class="ContentListTLeft">
+                                <a title="<?php echo $first_news['title']; ?>" href="<?php echo $first_news['href']; ?>">
+                                    <img src="<?php echo $first_news['image']; ?>">
+                                </a>
+                            </div>
+                            <div class="ContentListTRight">
+                                <a class="titleLT" title="<?php echo $first_news['title']; ?>" href="<?php echo $first_news['href']; ?>"><?php echo $first_news['title']; ?></a>
+                                <ul>
+                                    <?php foreach ($category['newses'] as $news) { ?>
+                                    <li>
+                                        <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
+                                    </li>
+                                    <?php } ?>
+                                </ul>
                             </div>
                         </div>
-                    <?php } ?>
+                        <div class="clear"></div>
+                        <?php } ?>
+                    </div>
                 </div>
-                <?php } ?>
             </div>
-            <!-- End Shops Block -->
             <?php echo $content_bottom; ?>
         </div>
         <div class="col-sm-3">

@@ -9,78 +9,77 @@ class ControllerNewsHome extends Controller {
 			$this->document->addLink(HTTP_SERVER, 'canonical');
 		}
 
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/news/stylesheet1.css');
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/news/stylesheet2.css');
+
+		$this->load->language('news/home');
+
+		$data['breadcrumbs'] = array();
+
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_home'),
+			'href' => $this->url->link('common/home')
+		);
+
+		$data['breadcrumbs'][] = array(
+			'text' => $this->language->get('text_news'),
+			'href' => $this->url->link('news/home', '', 'SSL')
+		);
+
+		$this->load->model('news/news');
+		$this->load->model('tool/image');
+
+		// Last news
+		$results = $this->model_news_news->getNewses(array(
+			'start' => 0,
+			'limit' => 10
+		));
+		$data['hot_news'] = array();
+		foreach ($results as $result) {
+			$data['hot_news'][] = array(
+				'id' => $result['news_id'],
+				'title' => $result['title'],
+				'content' => $result['short_description'],
+				'image' => $this->model_tool_image->resize(($result['image']) || is_file($result['image']) ? ($result['image']) : 'no_image.png', 465, 302),
+				'href'  => $this->url->link('news/news', '&news_id=' . $result['news_id'])
+			);
+		}
+
+		// News by Categories
+		$this->load->model('news/category');
+		$data['categories'] = array();
+		$categories = $this->model_news_category->getCategories();
+		foreach ($categories as $category) {
+			$results = $this->model_news_news->getNewses(array(
+				'start' => 0,
+				'limit' => 4,
+				'filter_news_category_id' => $category['news_category_id']
+			));
+			$newses = array();
+			foreach ($results as $result) {
+				$newses[] = array(
+					'id' => $result['news_id'],
+					'title' => $result['title'],
+					'content' => $result['short_description'],
+					'image' => $this->model_tool_image->resize(($result['image']) || is_file($result['image']) ? ($result['image']) : 'no_image.png', 465, 302),
+					'href'  => $this->url->link('news/news', '&news_id=' . $result['news_id'])
+				);
+			}
+			if (count($newses) == 0) continue;
+			$data['categories'][] = array(
+				'id' => $category['news_category_id'],
+				'name' => $category['name'],
+				'href' => $this->url->link('news/category', 'path=' . $category['news_category_id']),
+				'newses' => $newses
+			);
+		}
+
 		$data['column_left'] = $this->load->controller('news/column_left');
 		$data['column_right'] = $this->load->controller('news/column_right');
 		$data['content_top'] = $this->load->controller('news/content_top');
 		$data['content_bottom'] = $this->load->controller('news/content_bottom');
 		$data['footer'] = $this->load->controller('news/footer');
 		$data['header'] = $this->load->controller('news/header');
-
-		//TODO: Category Slideshow (move latter)		
-		$this->load->model('catalog/category');
-		$this->load->model('catalog/product');
-		$categories_data = array();
-		$categories = $this->model_catalog_category->getCategories(0);
-		
-		foreach ($categories as $category) {
-			// if ($category['top']) {
-				// Level 2
-				$children_data = array();
-
-				$children = $this->model_catalog_category->getCategories($category['category_id']);
-
-				foreach ($children as $child) {
-					$filter_data = array(
-						'filter_category_id'  => $child['category_id'],
-						'filter_sub_category' => true
-					);
-
-					$children_data[] = array(
-						'name'  => $child['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-						'href'  => $this->url->link('product/category', 'path=' . $category['category_id'] . '_' . $child['category_id'])
-					);
-				}
-				// Level 1
-				$categories_data[] = array(
-					'name'     => $category['name'],
-					'children' => $children_data,
-					'column'   => $category['column'] ? $category['column'] : 1,
-					'href'     => $this->url->link('product/category', 'path=' . $category['category_id'])
-				);
-			// }
-		}
-		//Load category banners
-		$category_banners = array();
-		$category_banners[] = array(
-			'title' => 'Slide 1',
-			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner1.jpg'
-		);
-		$category_banners[] = array(
-			'title' => 'Slide 2',
-			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner2.jpg'
-		);
-		$category_banners[] = array(
-			'title' => 'Slide 3',
-			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner3.jpg'
-		);
-		$category_banners[] = array(
-			'title' => 'Slide 4',
-			'link'  => '#',
-			'image' => 'image/catalog/demo/banners/banner4.jpg'
-		);
-		$viewData = array(
-			'category_data' => $categories_data, 
-			'category_banners' => $category_banners
-		);
-
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/category_slideshow.tpl')) {
-			$data['categories_slideshow'] = $this->load->view($this->config->get('config_template') . '/template/api/module/category_slideshow.tpl', $viewData);
-		} else {
-			$data['categories_slideshow'] = $this->load->view('default/template/api/module/category_slideshow.tpl', $viewData);
-		}
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/news/home.tpl')) {
 			$this->response->setOutput($this->load->view($this->config->get('config_template') . '/template/news/home.tpl', $data));

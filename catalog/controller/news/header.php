@@ -9,6 +9,8 @@ class ControllerNewsHeader extends Controller {
 			$server = $this->config->get('config_url');
 		}
 
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/news/stylesheet.css');
+
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();

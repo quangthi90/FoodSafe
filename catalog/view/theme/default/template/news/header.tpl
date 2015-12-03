@@ -121,26 +121,26 @@
       </div>
   </div>
 </nav>
-<header>
-  <div class="container">    
-    <div class="row header-category">
-      <div class="col-md-2" style="padding-right: 0;">
-        <a id="category" class="btn btn-primary btn-lg block"><i class="fa fa-bars"></i> Sản phẩm</a>
-      </div>
-      <div class="col-md-10" style="padding-left: 0;">
-        <div class="row">
-          <div class="col-sm-9">
-            <ul class="list-inline links">
-              <li><a href="#" title="<?php echo $text_news; ?>"><i class="fa fa-newspaper-o"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_news; ?></span></a></li>
-              <li><a href="#" title="<?php echo $text_contact; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shops; ?></span></a></li>
-              <li><a href="<?php echo $contact; ?>" title="<?php echo $text_contact; ?>"><i class="fa fa-phone"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_contact; ?></span></a></li>
-            </ul>
-          </div>
-          <div class="col-sm-3">
-            <a href="#" class="btn btn-primary btn-lg text-uppercase block"><i class="fa fa-plus"></i> Khởi tạo gian hàng</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
+  <div class="menutopNew">
+    <ul>
+        <?php foreach ($categories as $category) { ?>
+        <li class="lisroot lihome">
+          <a title="<?php echo $category['name']; ?>" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+          <?php if (!empty($category['children'])) { ?>
+          <ul class="ulchild">
+            <?php foreach ($category['children'] as $child) { ?>
+            <li><a title="<?php echo $child['name']; ?>" href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
+            <?php } ?>
+          </ul>
+          <?php } ?>
+        </li>
+        <?php } ?>
+        <li class="SearchNew">
+            <div>
+                <input type="text" style="border-style:None;" placeholder="Nhập từ khóa" class="txtSearch" id="txtSearchnew" name="dnn$ctr2659$View$txtSearchnew">
+                <input type="submit" style="border-style:None;" class="btnSearch" id="dnn_ctr2659_View_btnsearch" onclick="return CheckSearch();" value="Tìm kiếm" name="dnn$ctr2659$View$btnsearch">
+            </div>
+        </li>
+    </ul>
+    <div class="clr"></div>
+</div>

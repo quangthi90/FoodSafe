@@ -1,12 +1,12 @@
 <?php
-class ControllerCommonContentTop extends Controller {
+class ControllerNewsContentTop extends Controller {
 	public function index() {
 		$this->load->model('design/layout');
 		
 		if (isset($this->request->get['route'])) {
 			$route = (string)$this->request->get['route'];
 		} else {
-			$route = 'common/home';
+			$route = 'news/home';
 		}
 
 		$layout_id = 0;
@@ -59,10 +59,10 @@ class ControllerCommonContentTop extends Controller {
 			}
 		}
 
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/content_top.tpl')) {
-			return $this->load->view($this->config->get('config_template') . '/template/common/content_top.tpl', $data);
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/news/content_top.tpl')) {
+			return $this->load->view($this->config->get('config_template') . '/template/news/content_top.tpl', $data);
 		} else {
-			return $this->load->view('default/template/common/content_top.tpl', $data);
+			return $this->load->view('default/template/news/content_top.tpl', $data);
 		}
 	}
 }
