@@ -97,7 +97,7 @@
                             <span>Tin theo chuyên mục</span>
                         </div>
                         <?php foreach ($categories as $category) { ?>
-                        <div class="divTitleListT"><span class="iconCNN"></span> <?php echo $category['name']; ?> </div>
+                        <div class="divTitleListT"><span class="iconCNN"></span><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
                         <div class="divContentListT">
                             <?php $first_news = $category['newses'][0]; ?>
                             <?php array_shift($category['newses']); ?>
