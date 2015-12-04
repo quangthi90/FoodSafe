@@ -1,10 +1,10 @@
 <?php
 // Heading
-$_['heading_title']       = 'Bán chạy nhất';
+$_['heading_title']       = 'Tin tức xem nhiều nhất';
 
 // Text
 $_['text_module']         = 'Mô-đun';
-$_['text_success']        = 'Hoàn tất: Bạn đã thay đổi mô-đun bán chạy nhất!';
+$_['text_success']        = 'Hoàn tất: Bạn đã thay đổi mô-đun Tin tức xem nhiều nhất!';
 $_['text_content_top']    = 'Đầu nội dung ';
 $_['text_content_bottom'] = 'Cuối nội dung';
 $_['text_column_left']    = 'Cột trái';
@@ -20,6 +20,6 @@ $_['entry_sort_order']    = 'Thứ tự:';
 $_['entry_type']          = 'Loại';
 
 // Error
-$_['error_permission']    = 'Cảnh báo: Bạn không được phép sửa đổi mô-đun bán chạy nhất!';
+$_['error_permission']    = 'Cảnh báo: Bạn không được phép sửa đổi mô-đun Tin tức xem nhiều nhất!';
 $_['error_image']         = 'Chiều rộng ảnh & kích thước chiều cao yêu cầu!';
 ?>
