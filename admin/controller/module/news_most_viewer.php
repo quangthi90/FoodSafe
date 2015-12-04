@@ -113,22 +113,6 @@ class ControllerModuleNewsMostViewer extends Controller {
 			$data['limit'] = $module_info['limit'];
 		} else {
 			$data['limit'] = 5;
-		}	
-				
-		if (isset($this->request->post['width'])) {
-			$data['width'] = $this->request->post['width'];
-		} elseif (!empty($module_info)) {
-			$data['width'] = $module_info['width'];
-		} else {
-			$data['width'] = 200;
-		}	
-			
-		if (isset($this->request->post['height'])) {
-			$data['height'] = $this->request->post['height'];
-		} elseif (!empty($module_info)) {
-			$data['height'] = $module_info['height'];
-		} else {
-			$data['height'] = 200;
 		}
 				
 		if (isset($this->request->post['status'])) {
