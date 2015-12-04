@@ -54,7 +54,22 @@ class ControllerNewsContentTop extends Controller {
 				$setting_info = $this->model_extension_module->getModule($part[1]);
 				
 				if ($setting_info && $setting_info['status']) {
-					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+					if (!empty($setting_info['type'])) {
+						switch ($setting_info['type']) {
+							case 'default':
+								$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+								break;
+							
+							default:
+								$setting_info['part'] = $part;
+								$setting_info['modules'] = &$modules;
+								$setting_info['sort_order'] = $module['sort_order'];
+								$data['modules'][] = $this->load->api('common/module', $setting_info);
+								break;
+						}
+					} else {
+						$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+					}
 				}
 			}
 		}

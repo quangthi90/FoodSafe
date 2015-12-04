@@ -58,10 +58,7 @@
             <label class="col-sm-2 control-label" for="input-type"><?php echo $entry_type; ?></label>
             <div class="col-sm-10">
               <select name="type" id="input-type" class="form-control">
-                <option value="default" <?php if ($type == 'default') { ?>selected="selected"<?php } ?>>default</option>
-                <option value="tabs" <?php if ($type == 'tabs') { ?>selected="selected"<?php } ?>>tabs</option>
-                <option value="carousel" <?php if ($type == 'carousel') { ?>selected="selected"<?php } ?>>carousel</option>
-                <option value="list" <?php if ($type == 'list') { ?>selected="selected"<?php } ?>>list</option>
+                <option value="tabs" <?php if ($type == 'news_tabs') { ?>selected="selected"<?php } ?>>tabs</option>
               </select>
             </div>
           </div>

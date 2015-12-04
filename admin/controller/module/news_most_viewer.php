@@ -128,7 +128,7 @@ class ControllerModuleNewsMostViewer extends Controller {
 		} elseif (!empty($module_info) && !empty($module_info['type'])) {
 			$data['type'] = $module_info['type'];
 		} else {
-			$data['type'] = 'default';
+			$data['type'] = '';
 		}
 			
 		$data['header'] = $this->load->controller('common/header');
