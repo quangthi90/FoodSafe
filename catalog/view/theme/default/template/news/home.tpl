@@ -1,6 +1,16 @@
 <?php echo $header; ?>
 <div class="container">
     <div class="row">
+        <div class="col-sm-12">
+            <!-- Breadcrumb -->
+            <ul class="breadcrumb">
+                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
+                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
         <?php //echo $column_left; ?>
         <?php //if ($column_left && $column_right) { ?>
         <?php //$class = 'col-sm-6'; ?>
@@ -8,16 +18,11 @@
         <?php //$class = 'col-sm-9'; ?>
         <?php //} else { ?>
         <?php //$class = 'col-sm-12'; ?>
-        <?php //} ?>
-        
+        <?php //} ?>        
         <div id="content" class="col-sm-9">
-            <?php echo $content_top; ?>
-            <!-- Breadcrumb -->
-            <ul class="breadcrumb">
-                <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-                <li><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a></li>
-                <?php } ?>
-            </ul>
+            <?php echo $content_top; ?>      
+            
+                  
             <!-- Hot news -->
             <div class="nsl">
                 <?php $main_news = $hot_news[0]; ?>

@@ -7,11 +7,8 @@ class ControllerNewsHome extends Controller {
 
 		if (isset($this->request->get['route'])) {
 			$this->document->addLink(HTTP_SERVER, 'canonical');
-		}
-
-		$this->document->addStyle('catalog/view/theme/default/stylesheet/news/stylesheet1.css');
-		$this->document->addStyle('catalog/view/theme/default/stylesheet/news/stylesheet2.css');
-
+		}		
+		
 		$this->load->language('news/home');
 
 		$data['breadcrumbs'] = array();
