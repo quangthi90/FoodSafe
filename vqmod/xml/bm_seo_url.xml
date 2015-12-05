@@ -59,4 +59,13 @@
 			]]></add>
 		</operation>
 	</file>
+
+	<file name="system/library/url.php">
+		<operation>
+			<search position="before"><![CDATA[$url .= 'index.php?route=' . $route;]]></search>
+			<add><![CDATA[
+				if ( $route == 'common/home' && $args == '' ) return $url;
+			]]></add>
+		</operation>
+	</file>
 </modification>
