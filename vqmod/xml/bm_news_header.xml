@@ -1,0 +1,82 @@
+<modification>
+	<id>HEADER OF NEWS PAGES</id>
+	<version>1.4.x and 1.5.x</version>
+	<vqmver required="true">2.4.0</vqmver>
+	<author>lqthi.khtn@gmail.com</author>
+
+	<file name="catalog/controller/news/header.php">
+		<operation>
+			<search position="before"><![CDATA[
+				// For page specific css
+			]]></search>
+			<add><![CDATA[
+				// News Menu
+				$this->load->model('news/category');
+				$this->load->model('news/news');
+
+				$categories = $this->model_news_category->getCategories(0);
+				$data['categories'] = array();
+				$common_config = $this->config->get('common');
+				foreach ($categories as $category) {
+					if ((!empty($this->session->data['tracking']) || $this->affiliate->isLogged()) && $category['news_category_id'] == $common_config['affiliate']['remove_news_id']) continue;
+					if ($category['top']) {
+						// Level 2
+						$children_data = array();
+
+						$children = $this->model_news_category->getCategories($category['news_category_id']);
+
+						foreach ($children as $child) {
+							if ($child['top']){
+								// Level 3
+								$children_news_data = array();
+								$child_newses = $this->model_news_news->getNewses(array('filter_news_category_id' => $child['news_category_id']));
+								foreach ($child_newses as $child_news) {
+									if ($child_news['top']){
+										$children_news_data[] = array(
+											'name'  => $child_news['title'],
+											'href'  => $this->url->link('news/news', 'news_id=' . $child_news['news_id']),
+											'sort_order' => $child_news['sort_order']
+										);
+									}
+								}
+								$children_data[] = array(
+									'name'  => $child['name'],
+									'href'  => $this->url->link('news/category', 'path=' . $category['news_category_id'] . '_' . $child['news_category_id']),
+									'sort_order' => $child['sort_order'],
+									'children' => $children_news_data
+								);
+							}
+						}
+
+						$newses = $this->model_news_news->getNewses(array('filter_news_category_id' => $category['news_category_id']));
+
+						foreach ($newses as $news) {
+							if ($news['top']){
+								$children_data[] = array(
+									'name'  => $news['title'],
+									'href'  => $this->url->link('news/news', 'news_id=' . $news['news_id']),
+									'sort_order' => $news['sort_order']
+								);
+							}
+						}
+
+						uasort($children_data, function($a, $b){
+							if ($a['sort_order'] == $b['sort_order']) {
+						        return 0;
+							}
+							return ($a['sort_order'] < $b['sort_order']) ? -1 : 1;
+						});
+						
+						// Level 1
+						$data['categories'][] = array(
+							'name'     => $category['name'],
+							'children' => $children_data,
+							'column'   => $category['column'] ? $category['column'] : 1,
+							'href'     => $this->url->link('news/category', 'path=' . $category['news_category_id'])
+						);
+					}
+				}
+			]]></add>
+		</operation>
+	</file>
+</modification>

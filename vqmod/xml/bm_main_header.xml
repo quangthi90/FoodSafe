@@ -1,0 +1,51 @@
+<modification>
+	<id>HEADER OF MAIN PAGES</id>
+	<version>1.4.x and 1.5.x</version>
+	<vqmver required="true">2.4.0</vqmver>
+	<author>lqthi.khtn@gmail.com</author>
+
+	<file name="catalog/controller/common/header.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$data['text_all'] = $this->language->get('text_all');
+			]]></search>
+			<add><![CDATA[
+				$data['text_news'] = $this->language->get('text_news');
+				$data['text_shops'] = $this->language->get('text_shops');
+				$data['text_contact'] = $this->language->get('text_contact');
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace" offset="36"><![CDATA[
+				// Menu
+			]]></search>
+			<add></add>
+		</operation>
+	</file>
+
+	<file name="catalog/language/enlish/common/header.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['text_all']           = 'See All';
+			]]></search>
+			<add><![CDATA[
+				$_['text_news']           = 'News';
+				$_['text_shops']          = 'Shops';
+				$_['text_contact']        = 'Contact us';
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/language/vietnamese/common/header.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['text_currency'] = 'Tiền tệ';
+			]]></search>
+			<add><![CDATA[
+				$_['text_news']           = 'Tin tức';
+				$_['text_shops']          = 'Gian hàng';
+				$_['text_contact']        = 'Liên hệ';
+			]]></add>
+		</operation>
+	</file>
+</modification>

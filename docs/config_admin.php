@@ -20,6 +20,7 @@ define('DIR_UPLOAD', 'F:\Program\xampp\htdocs\Foodsafe/system/upload/');
 define('DIR_LOGS', 'F:\Program\xampp\htdocs\Foodsafe/system/logs/');
 define('DIR_MODIFICATION', 'F:\Program\xampp\htdocs\Foodsafe/system/modification/');
 define('DIR_CATALOG', 'F:\Program\xampp\htdocs\Foodsafe/catalog/');
+define('DIR_API', 'F:\Program\xampp\htdocs\Foodsafe/api/');
 
 // DB
 define('DB_DRIVER', 'mysqli');

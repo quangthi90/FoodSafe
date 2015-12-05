@@ -1,0 +1,338 @@
+<modification>
+	<id>MAIN HOME PAGE</id>
+	<version>1.4.x and 1.5.x</version>
+	<vqmver required="true">2.4.0</vqmver>
+	<author>lqthi.khtn@gmail.com</author>
+
+	<file name="admin/controller/module/latest.php">
+		<operation>
+			<search position="before"><![CDATA[
+				$data['header'] = $this->load->controller('common/header');
+			]]></search>
+			<add><![CDATA[
+				if (isset($this->request->post['type'])) {
+					$data['type'] = $this->request->post['type'];
+				} elseif (!empty($module_info) && !empty($module_info['type'])) {
+					$data['type'] = $module_info['type'];
+				} else {
+					$data['type'] = 'default';
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+				$data['entry_status'] = $this->language->get('entry_status');
+			]]></search>
+			<add><![CDATA[
+				$data['entry_type'] = $this->language->get('entry_type');
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/english/module/latest.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['entry_status']     = 'Status';
+			]]></search>
+			<add><![CDATA[
+				$_['entry_type']       = 'Type';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/vietnamese/module/latest.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['entry_sort_order']    = 'Thứ tự:';
+			]]></search>
+			<add><![CDATA[
+				$_['entry_type']          = 'Loại';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/module/latest.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				</form>
+			]]></search>
+			<add><![CDATA[
+				<div class="form-group">
+		            <label class="col-sm-2 control-label" for="input-type"><?php echo $entry_type; ?></label>
+		            <div class="col-sm-10">
+		              <select name="type" id="input-type" class="form-control">
+		                <option value="default" <?php if ($type == 'default') { ?>selected="selected"<?php } ?>>default</option>
+		                <option value="tabs" <?php if ($type == 'tabs') { ?>selected="selected"<?php } ?>>tabs</option>
+		                <option value="carousel" <?php if ($type == 'carousel') { ?>selected="selected"<?php } ?>>carousel</option>
+		                <option value="list" <?php if ($type == 'list') { ?>selected="selected"<?php } ?>>list</option>
+		              </select>
+		            </div>
+		        </div>
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="admin/controller/module/bestseller.php">
+		<operation>
+			<search position="before"><![CDATA[
+				$data['header'] = $this->load->controller('common/header');
+			]]></search>
+			<add><![CDATA[
+				if (isset($this->request->post['type'])) {
+					$data['type'] = $this->request->post['type'];
+				} elseif (!empty($module_info) && !empty($module_info['type'])) {
+					$data['type'] = $module_info['type'];
+				} else {
+					$data['type'] = 'default';
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+				$data['entry_status'] = $this->language->get('entry_status');
+			]]></search>
+			<add><![CDATA[
+				$data['entry_type'] = $this->language->get('entry_type');
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/english/module/bestseller.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['entry_status']     = 'Status';
+			]]></search>
+			<add><![CDATA[
+				$_['entry_type']       = 'Type';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/vietnamese/module/bestseller.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['entry_sort_order']    = 'Thứ tự:';
+			]]></search>
+			<add><![CDATA[
+				$_['entry_type']          = 'Loại';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/module/bestseller.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				</form>
+			]]></search>
+			<add><![CDATA[
+				<div class="form-group">
+		            <label class="col-sm-2 control-label" for="input-type"><?php echo $entry_type; ?></label>
+		            <div class="col-sm-10">
+		              <select name="type" id="input-type" class="form-control">
+		                <option value="default" <?php if ($type == 'default') { ?>selected="selected"<?php } ?>>default</option>
+		                <option value="tabs" <?php if ($type == 'tabs') { ?>selected="selected"<?php } ?>>tabs</option>
+		                <option value="carousel" <?php if ($type == 'carousel') { ?>selected="selected"<?php } ?>>carousel</option>
+		                <option value="list" <?php if ($type == 'list') { ?>selected="selected"<?php } ?>>list</option>
+		              </select>
+		            </div>
+		        </div>
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="admin/controller/module/featured.php">
+		<operation>
+			<search position="before"><![CDATA[
+				$data['header'] = $this->load->controller('common/header');
+			]]></search>
+			<add><![CDATA[
+				if (isset($this->request->post['type'])) {
+					$data['type'] = $this->request->post['type'];
+				} elseif (!empty($module_info) && !empty($module_info['type'])) {
+					$data['type'] = $module_info['type'];
+				} else {
+					$data['type'] = 'default';
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="after"><![CDATA[
+				$data['entry_status'] = $this->language->get('entry_status');
+			]]></search>
+			<add><![CDATA[
+				$data['entry_type'] = $this->language->get('entry_type');
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/english/module/featured.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['entry_status']     = 'Status';
+			]]></search>
+			<add><![CDATA[
+				$_['entry_type']       = 'Type';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/language/vietnamese/module/featured.php">
+		<operation>
+			<search position="after"><![CDATA[
+				$_['entry_sort_order']    = 'Thứ tự:';
+			]]></search>
+			<add><![CDATA[
+				$_['entry_type']          = 'Loại';
+			]]></add>
+		</operation>
+	</file>
+	<file name="admin/view/template/module/featured.tpl">
+		<operation>
+			<search position="before"><![CDATA[
+				</form>
+			]]></search>
+			<add><![CDATA[
+				<div class="form-group">
+		            <label class="col-sm-2 control-label" for="input-type"><?php echo $entry_type; ?></label>
+		            <div class="col-sm-10">
+		              <select name="type" id="input-type" class="form-control">
+		                <option value="default" <?php if ($type == 'default') { ?>selected="selected"<?php } ?>>default</option>
+		                <option value="tabs" <?php if ($type == 'tabs') { ?>selected="selected"<?php } ?>>tabs</option>
+		                <option value="carousel" <?php if ($type == 'carousel') { ?>selected="selected"<?php } ?>>carousel</option>
+		                <option value="list" <?php if ($type == 'list') { ?>selected="selected"<?php } ?>>list</option>
+		              </select>
+		            </div>
+		        </div>
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/column_left.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+						
+						default:
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				foreach ($modules as $module) {
+			]]></search>
+			<add><![CDATA[
+				foreach ($modules as &$module) {
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/column_right.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+						
+						default:
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				foreach ($modules as $module) {
+			]]></search>
+			<add><![CDATA[
+				foreach ($modules as &$module) {
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/content_bottom.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+						
+						default:
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				foreach ($modules as $module) {
+			]]></search>
+			<add><![CDATA[
+				foreach ($modules as &$module) {
+			]]></add>
+		</operation>
+	</file>
+
+	<file name="catalog/controller/common/content_top.php">
+		<operation>
+			<search position="replace"><![CDATA[
+				$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+			]]></search>
+			<add><![CDATA[
+				if (!empty($setting_info['type'])) {
+					switch ($setting_info['type']) {
+						case 'default':
+							$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+							break;
+						
+						default:
+							$setting_info['part'] = $part;
+							$setting_info['modules'] = &$modules;
+							$setting_info['sort_order'] = $module['sort_order'];
+							$data['modules'][] = $this->load->api('common/module', $setting_info);
+							break;
+					}
+				} else {
+					$data['modules'][] = $this->load->controller('module/' . $part[0], $setting_info);
+				}
+			]]></add>
+		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				foreach ($modules as $module) {
+			]]></search>
+			<add><![CDATA[
+				foreach ($modules as &$module) {
+			]]></add>
+		</operation>
+	</file>
+
+</modification>

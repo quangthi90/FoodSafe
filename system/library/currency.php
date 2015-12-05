@@ -27,8 +27,8 @@ class Currency {
 			$this->set($this->request->get['currency']);
 		} elseif ((isset($this->session->data['currency'])) && (array_key_exists($this->session->data['currency'], $this->currencies))) {
 			$this->set($this->session->data['currency']);
-		} elseif ((isset($this->request->cookie['currency'])) && (array_key_exists($this->request->cookie['currency'], $this->currencies))) {
-			$this->set($this->request->cookie['currency']);
+		// } elseif ((isset($this->request->cookie['currency'])) && (array_key_exists($this->request->cookie['currency'], $this->currencies))) {
+		// 	$this->set($this->request->cookie['currency']);
 		} else {
 			$this->set($this->config->get('config_currency'));
 		}
