@@ -52,7 +52,7 @@
 			]]></search>
 			<add><![CDATA[
 				} elseif (isset($this->request->get['news_id'])) {
-					$this->request->get['route'] = 'news/news';
+					$this->request->get['route'] = 'news/detail';
 				} elseif (isset($this->request->get['npath'])) {
 					$this->request->get['path'] = $this->request->get['npath'];
 					$this->request->get['route'] = 'news/category';
