@@ -43,6 +43,14 @@
 				}
 			]]></add>
 		</operation>
+		<operation>
+			<search position="replace"><![CDATA[
+				extract($data);
+			]]></search>
+			<add><![CDATA[
+				extract((array)$data);
+			]]></add>
+		</operation>
 	</file>
 
 </modification>
