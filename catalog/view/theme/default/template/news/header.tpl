@@ -94,9 +94,9 @@
     </div>    
   </div>
 </nav>
-<nav id="news-menu" class="navbar navbar-inverse">
+<nav id="news-menu" class="navbar">
   <div class="container">
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav navbar-nav-news">
       <li class="active"><a href="#">Home</a></li>
       <?php foreach ($categories as $category) { 
         if (!empty($category['children'])) { ?>
@@ -124,12 +124,12 @@
         <?php } ?>
       <?php } ?>
     </ul>
-    <div class="col-sm-3 col-md-3 pull-right">
-      <form class="navbar-form" role="search">
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search" name="q">
+    <div class="col-sm-3 col-md-3 pull-right text-right">
+      <form class="navbar-form search-form" role="search">
+          <div class="input-group input-group-search">
+              <input type="text" class="form-control text-search" placeholder="Tìm kiếm ..." name="q">
               <div class="input-group-btn">
-                  <button class="btn btn-default" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>
               </div>
           </div>
       </form>
