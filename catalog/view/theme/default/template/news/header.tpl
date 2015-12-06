@@ -63,7 +63,7 @@
       </div>
       <div class="col-xs-5">
         <div class="row">
-          <div class="col-xs-9">
+          <div class="col-xs-12">
             <div id="top-links" class="nav pull-right">
               <ul class="list-inline">
                 <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
@@ -85,9 +85,6 @@
                 <?php } ?>       
               </ul>          
             </div>
-          </div>
-          <div class="col-xs-3">
-            <div class="cart-wrapper pull-right"><?php echo $cart; ?></div>
           </div>
         </div>
       </div>

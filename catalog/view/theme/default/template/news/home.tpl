@@ -20,57 +20,57 @@
         <?php //$class = 'col-sm-12'; ?>
         <?php //} ?>        
         <div id="content" class="col-sm-9">
-            <?php echo $content_top; ?>      
-            
+            <?php echo $content_top; ?>
                   
             <!-- Hot news -->
-            <div class="nsl">
-                <?php $main_news = $hot_news[0]; ?>
-                <?php array_shift($hot_news); ?>
-                <div class="nsimg">
-                    <div class="nsimg1">
-                        <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><img alt="<?php echo $main_news['title']; ?>" src="<?php echo $main_news['image']; ?>"></a>
+            <div class="top-news">
+                <div class="main-news">
+                    <?php $main_news = $hot_news[0]; ?>
+                    <?php array_shift($hot_news); ?>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><img alt="<?php echo $main_news['title']; ?>" src="<?php echo $main_news['image']; ?>"></a>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="news-title">
+                                <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><?php echo $main_news['title']; ?></a>
+                            </div>
+                            <div class="news-date">
+                                Thứ sáu, ngày 16/10/2015 3:49:00 CH
+                            </div>
+                            <div class="news-content">
+                                <?php echo $main_news['content']; ?>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="ns0">
-                    <div class="ns1">
-                        <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><?php echo $main_news['title']; ?></a>
-                    </div>
-                    <div class="ns2">Thứ sáu, ngày 16/10/2015 3:49:00 CH</div>
-                    <div class="ns3"><?php echo $main_news['content']; ?></div>
+                <div class="hot-news">
+                    <?php foreach ($hot_news as $news) { ?>
+                        <div class="news-item">
+                            <div class="news-img">
+                                <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>">
+                                    <img alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>">
+                                </a>
+                            </div>
+                            <div class="news-title">
+                                <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>"><?php echo $news['title']; ?></a>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <script type="text/javascript">
+                        $('.hot-news').owlCarousel({
+                            items: 3,
+                            autoPlay: false,
+                            singleItem: false,
+                            navigation: true,
+                            stopOnHover: true,
+                            rewindNav : false,
+                            navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                            pagination: false
+                        });
+                    </script>
                 </div>
-                <div class="ds0">
-                    <div class="dss">
-                        <ul class="hot-news">
-                            <?php foreach ($hot_news as $news) { ?>
-                            <li>
-                                <div class="climg">
-                                    <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>">
-                                        <img width="100%" height="96px" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>">
-                                    </a>
-                                </div>
-                                <div class="ds1">
-                                    <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>"><?php echo $news['title']; ?></a>
-                                </div>
-                            </li>
-                            <?php } ?>
-                        </ul>
-                        <script type="text/javascript">
-                            $('.hot-news').owlCarousel({
-                                items: 3,
-                                autoPlay: false,
-                                singleItem: false,
-                                navigation: true,
-                                stopOnHover: true,
-                                rewindNav : false,
-                                navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
-                                pagination: false
-                            });
-                        </script>
-                    </div>
-                    <div class="clr"></div>
-                </div>
-            </div>
+            </div>            
             <div class="col-sm-12">
                 <!-- Last news -->
                 <div id="dnn_NewsArc1" class="NewsArc1">
@@ -143,23 +143,23 @@
                             </div>
                             <div class="small-line"></div>
                             <div class="row">
-                                <div class="col-xs-5">Mở gian hàng</div>
-                                <div class="col-xs-7"><a href="#"><img alt="gianhang.thitruongnongnghiep" align="middle" border="0" class="" src="http://opi.yahoo.com/online?u=gianhang.thitruongnongnghiep&amp;m=g&amp;t=1&amp;l=us" style="display: inline-block;"></a></div>
+                                <div class="col-xs-7">Mở gian hàng</div>
+                                <div class="col-xs-5"><a href="#"><img alt="gianhang.thitruongnongnghiep" align="middle" border="0" class="" src="http://opi.yahoo.com/online?u=gianhang.thitruongnongnghiep&amp;m=g&amp;t=1&amp;l=us" style="display: inline-block;"></a></div>
                             </div>
                             <div class="small-line"></div>
                             <div class="row">
-                                <div class="col-xs-5">Đăng sản phẩm</div>
-                                <div class="col-xs-7"><a href="#"><img alt="gianhang.thitruongnongnghiep" align="middle" border="0" class="" src="http://opi.yahoo.com/online?u=gianhang.thitruongnongnghiep&amp;m=g&amp;t=1&amp;l=us" style="display: inline-block;"></a></div>
+                                <div class="col-xs-7">Đăng sản phẩm</div>
+                                <div class="col-xs-5"><a href="#"><img alt="gianhang.thitruongnongnghiep" align="middle" border="0" class="" src="http://opi.yahoo.com/online?u=gianhang.thitruongnongnghiep&amp;m=g&amp;t=1&amp;l=us" style="display: inline-block;"></a></div>
                             </div>
                             <div class="small-line"></div>
                             <div class="row">
-                                <div class="col-xs-5">Hỗ trợ chung</div>
-                                <div class="col-xs-7"><a href="#"><img alt="gianhang.thitruongnongnghiep" align="middle" border="0" class="" src="http://opi.yahoo.com/online?u=gianhang.thitruongnongnghiep&amp;m=g&amp;t=1&amp;l=us" style="display: inline-block;"></a></div>
+                                <div class="col-xs-7">Hỗ trợ chung</div>
+                                <div class="col-xs-5"><a href="#"><img alt="gianhang.thitruongnongnghiep" align="middle" border="0" class="" src="http://opi.yahoo.com/online?u=gianhang.thitruongnongnghiep&amp;m=g&amp;t=1&amp;l=us" style="display: inline-block;"></a></div>
                             </div>
                             <div class="small-line"></div>
                             <div class="row">
-                                <div class="col-xs-5">Hotline</div>
-                                <div class="col-xs-7">823434343</div>
+                                <div class="col-xs-7">Hotline</div>
+                                <div class="col-xs-5">823434343</div>
                             </div>
                         </div>
                     </div>
@@ -190,7 +190,7 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab-site-community">
-                        <div class="fb-page" data-href="https://www.facebook.com/fsoccongdongtaichinh" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
+                        <div class="fb-page" data-href="https://www.facebook.com/suckhoe1967" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"></div>
                     </div>
                 </div>
             </div>
