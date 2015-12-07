@@ -27,13 +27,15 @@
                 <div class="main-news">
                     <?php $main_news = $hot_news[0]; ?>
                     <?php array_shift($hot_news); ?>
-                    <div class="row">
+                    <div class="row news-item">
                         <div class="col-xs-6">
-                            <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><img alt="<?php echo $main_news['title']; ?>" src="<?php echo $main_news['image']; ?>"></a>
+                            <a class="news-link" title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>">
+                                <img class="img-responsive" alt="<?php echo $main_news['title']; ?>" src="<?php echo $main_news['image']; ?>">
+                            </a>
                         </div>
                         <div class="col-xs-6">
                             <div class="news-title">
-                                <a title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><?php echo $main_news['title']; ?></a>
+                                <a class="news-link" title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><?php echo $main_news['title']; ?></a>
                             </div>
                             <div class="news-date">
                                 Thứ sáu, ngày 16/10/2015 3:49:00 CH
@@ -41,92 +43,113 @@
                             <div class="news-content">
                                 <?php echo $main_news['content']; ?>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="hot-news">
-                    <?php foreach ($hot_news as $news) { ?>
-                        <div class="news-item">
-                            <div class="news-img">
-                                <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>">
-                                    <img alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>">
-                                </a>
-                            </div>
-                            <div class="news-title">
-                                <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>"><?php echo $news['title']; ?></a>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <script type="text/javascript">
-                        $('.hot-news').owlCarousel({
-                            items: 3,
-                            autoPlay: false,
-                            singleItem: false,
-                            navigation: true,
-                            stopOnHover: true,
-                            rewindNav : false,
-                            navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
-                            pagination: false
-                        });
-                    </script>
-                </div>
-            </div>            
-            <div class="col-sm-12">
-                <!-- Last news -->
-                <div id="dnn_NewsArc1" class="NewsArc1">
-                    <div class="newG">
-                        <div class="lht0">
-                            <span class="lht1">Tin tức tổng hợp</span>
-                        </div>
-                        <div class="lht3">
-                            <?php foreach ($hot_news as $news) { ?>
-                            <div class="lhoR">
-                                <div class="lhoR1"> 
-                                    <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>">
-                                        <img width="130px" height="105px" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>"> 
-                                    </a>
-                                </div>
-                                <div class="lhoR2">
-                                    <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
-                                </div>
-                                <div class="lhoR3"><?php echo $news['content']; ?></div>
-                            </div>
+                            <?php if(count($hot_news) > 0) { ?>
+                            <div class="divider-line-medium"></div>
+                            <div class="hot-news">
+                                <?php foreach ($hot_news as $news) { ?>
+                                    <div class="news-item">
+                                        <div class="news-img">
+                                            <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>">
+                                                <img class="img-responsive" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>">
+                                            </a>
+                                        </div>
+                                        <div class="news-title">
+                                            <a class="news-link" title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>"><?php echo $news['title']; ?></a>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                                <script type="text/javascript">
+                                    $('.hot-news').owlCarousel({
+                                        items: 3,
+                                        autoPlay: false,
+                                        singleItem: false,
+                                        navigation: true,
+                                        stopOnHover: true,
+                                        rewindNav : false,
+                                        navigationText: ['<i class="fa fa-chevron-left fa-5x"></i>', '<i class="fa fa-chevron-right fa-5x"></i>'],
+                                        pagination: false
+                                    });
+                                </script>
+                            </div> 
                             <?php } ?>
                         </div>
                     </div>
-                </div>
-                <!-- News by Categories -->
-                <div id="dnn_NewsArc2" class="NewsArc2">
-                    <div class="ListTinT">
-                        <div class="titleBoxT">
-                            <span>Tin theo chuyên mục</span>
-                        </div>
-                        <?php foreach ($categories as $category) { ?>
-                        <div class="divTitleListT"><span class="iconCNN"></span><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></div>
-                        <div class="divContentListT">
-                            <?php $first_news = $category['newses'][0]; ?>
-                            <?php array_shift($category['newses']); ?>
-                            <div class="ContentListTLeft">
-                                <a title="<?php echo $first_news['title']; ?>" href="<?php echo $first_news['href']; ?>">
-                                    <img src="<?php echo $first_news['image']; ?>">
-                                </a>
+                </div>                        
+            </div>
+            <div class="latest-news-wrapper">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">Tin tức tổng hợp                            
+                        </h4>
+                    </div>
+                    <div class="panel-body">
+                        <?php $latestCount = count($hot_news); ?>
+                        <?php if($latestCount > 0) { ?>
+                            <div class="row">
+                            <?php foreach ($hot_news as $news) { ?>
+                                <div class="col-md-6 col-sm-12">
+                                    <div class="row news-item ">
+                                        <div class="col-xs-5">
+                                            <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>">
+                                                <img class="img-responsive news-img" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>"> 
+                                            </a>
+                                        </div>
+                                        <div class="col-xs-7">
+                                            <a class="news-link" href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            <?php } ?>
                             </div>
-                            <div class="ContentListTRight">
-                                <a class="titleLT" title="<?php echo $first_news['title']; ?>" href="<?php echo $first_news['href']; ?>"><?php echo $first_news['title']; ?></a>
+                        <?php } ?>
+                    </div>                    
+                </div>
+            </div>
+            <div class="divider-line"></div>
+            <div class="panel-group news-panels" id="news-panels">
+                <?php foreach ($categories as $category) { ?>
+                <div class="panel">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
+                      <a data-toggle="collapse" href="#collapse-cat-news-<?php echo $category['id']; ?>">Collapse</a>
+                    </h4>
+                  </div>
+                  <div id="collapse-cat-news-<?php echo $category['id']; ?>" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <?php $first_news = $category['newses'][0]; ?>
+                        <?php array_shift($category['newses']); ?>
+                        <div class="row news-item ">
+                            <div class="col-sm-7 col-xs-12">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <a title="<?php echo $first_news['title']; ?>" href="<?php echo $first_news['href']; ?>">
+                                            <img class="img-responsive news-img" alt="<?php echo $first_news['title']; ?>" src="<?php echo $first_news['image']; ?>"> 
+                                        </a>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <a class="news-link" href="<?php echo $first_news['href']; ?>" title="<?php echo $first_news['title']; ?>"><?php echo $first_news['title']; ?></a>
+                                        <div class="news-des"><?php echo $first_news['content']; ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-5 col-xs-12">
+                                <?php if(count($category['newses']) > 0) { ?>
                                 <ul>
                                     <?php foreach ($category['newses'] as $news) { ?>
-                                    <li>
-                                        <a href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
+                                    <li class="news-item ">
+                                        <a class="news-link" href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
                                     </li>
                                     <?php } ?>
                                 </ul>
+                                <?php  } ?>
                             </div>
                         </div>
-                        <div class="clear"></div>
-                        <?php } ?>
                     </div>
+                  </div>
                 </div>
-            </div>
+                <?php } ?>
+            </div>            
             <?php echo $content_bottom; ?>
         </div>
         <?php echo $column_right; ?>
