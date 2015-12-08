@@ -37,8 +37,13 @@
                             <div class="news-title">
                                 <a class="news-link" title="<?php echo $main_news['title']; ?>" href="<?php echo $main_news['href']; ?>"><?php echo $main_news['title']; ?></a>
                             </div>
-                            <div class="news-date">
-                                Thứ sáu, ngày 16/10/2015 3:49:00 CH
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <span class="news-date">16/10/2015 3:49 CH </span> | 
+                                    <span class="news-stats">
+                                        <i class="fa fa-eye"></i> <span class="view-count">100k</span>
+                                    </span>
+                                </div>
                             </div>
                             <div class="news-content">
                                 <?php echo $main_news['content']; ?>
@@ -89,12 +94,12 @@
                             <?php foreach ($hot_news as $news) { ?>
                                 <div class="col-md-6 col-sm-12">
                                     <div class="row news-item ">
-                                        <div class="col-xs-5">
+                                        <div class="col-xs-4">
                                             <a title="<?php echo $news['title']; ?>" href="<?php echo $news['href']; ?>">
                                                 <img class="img-responsive news-img" alt="<?php echo $news['title']; ?>" src="<?php echo $news['image']; ?>"> 
                                             </a>
                                         </div>
-                                        <div class="col-xs-7">
+                                        <div class="col-xs-8">
                                             <a class="news-link" href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
                                         </div>
                                     </div>
@@ -108,20 +113,20 @@
             <div class="divider-line"></div>
             <div class="panel-group news-panels" id="news-panels">
                 <?php foreach ($categories as $category) { ?>
-                <div class="panel">
+                <div class="panel panel-news">
                   <div class="panel-heading">
-                    <h4 class="panel-title">
-                      <a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-                      <a data-toggle="collapse" href="#collapse-cat-news-<?php echo $category['id']; ?>">Collapse</a>
+                    <h4 class="panel-title">                        
+                        <a href="<?php echo $category['href']; ?>"><i class="fa fa-newspaper-o"></i> <?php echo $category['name']; ?></a>
+                        <a class="pull-right collapse-trigger" data-toggle="collapse" href="#collapse-cat-news-<?php echo $category['id']; ?>"><i class="fa fa-angle-down"></i></a>
                     </h4>
                   </div>
                   <div id="collapse-cat-news-<?php echo $category['id']; ?>" class="panel-collapse collapse in">
                     <div class="panel-body">
                         <?php $first_news = $category['newses'][0]; ?>
                         <?php array_shift($category['newses']); ?>
-                        <div class="row news-item ">
+                        <div class="row">
                             <div class="col-sm-7 col-xs-12">
-                                <div class="row">
+                                <div class="row news-item">
                                     <div class="col-xs-5">
                                         <a title="<?php echo $first_news['title']; ?>" href="<?php echo $first_news['href']; ?>">
                                             <img class="img-responsive news-img" alt="<?php echo $first_news['title']; ?>" src="<?php echo $first_news['image']; ?>"> 
@@ -135,9 +140,10 @@
                             </div>
                             <div class="col-sm-5 col-xs-12">
                                 <?php if(count($category['newses']) > 0) { ?>
-                                <ul>
+                                <ul class="fa-ul news-list-in-cat">
                                     <?php foreach ($category['newses'] as $news) { ?>
                                     <li class="news-item ">
+                                        <i class="fa-li fa fa-angle-right"></i> 
                                         <a class="news-link" href="<?php echo $news['href']; ?>" title="<?php echo $news['title']; ?>"><?php echo $news['title']; ?></a>
                                     </li>
                                     <?php } ?>
