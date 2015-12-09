@@ -17,21 +17,24 @@
 <meta name="keywords" content= "<?php echo $keywords; ?>" />
 <?php } ?>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 <?php if ($icon) { ?>
 <link href="<?php echo $icon; ?>" rel="icon" />
 <?php } ?>
 <?php foreach ($links as $link) { ?>
 <link href="<?php echo $link['href']; ?>" rel="<?php echo $link['rel']; ?>" />
 <?php } ?>
-<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/default/stylesheet/stylesheet_green.css" rel="stylesheet">
 <link href="catalog/view/javascript/jquery/owl-carousel/owl.carousel.css" rel="stylesheet">
+<link href="catalog/view/theme/default/stylesheet/stylesheet_green.css" rel="stylesheet">
+<link href="catalog/view/theme/default/stylesheet/news.css" rel="stylesheet">
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="catalog/view/javascript/common.js" type="text/javascript"></script>
 <script src="catalog/view/javascript/jquery/owl-carousel/owl.carousel.js" type="text/javascript"></script>
 <?php foreach ($scripts as $script) { ?>
@@ -42,8 +45,6 @@
 <body class="<?php echo $class; ?>">
 <nav id="top">
   <div class="container">
-    <?php //echo $currency; ?>
-    <?php //echo $language; ?>
     <div class="row">
       <div class="col-xs-7">
         <div class="row header-logo">
@@ -62,7 +63,7 @@
       </div>
       <div class="col-xs-5">
         <div class="row">
-          <div class="col-xs-9">
+          <div class="col-xs-12">
             <div id="top-links" class="nav pull-right">
               <ul class="list-inline">
                 <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
@@ -85,62 +86,50 @@
               </ul>          
             </div>
           </div>
-          <div class="col-xs-3">
-            <div class="cart-wrapper pull-right"><?php echo $cart; ?></div>
-          </div>
         </div>
       </div>
-    </div>
-    
+    </div>    
   </div>
 </nav>
-<nav id="top-float">
+<nav id="news-menu" class="navbar">
   <div class="container">
-      <div class="row">
-        <div class="col-sm-3">
-          <button type="button" class="btn btn-primary btn-lg btn-navbar" id="btn-category-trigger">
-          <i class="fa fa-bars"></i> Sản phẩm
-          </button>
-        </div>
-        <div class="col-sm-5">
-          <?php echo $search; ?>
-        </div>
-        <div class="col-sm-2">
-          <?php echo $cart; ?>
-        </div>
-        <div class="col-sm-2">
-          <ul class="list-inline user-menu">
-            <?php if (!$logged) { ?>
-              <li><a href="<?php echo $register; ?>" title="<?php echo $text_register; ?>"><i class="fa fa-user-plus"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_register; ?></span></a></li>
-              <li><a href="<?php echo $login; ?>" title="<?php echo $text_login; ?>"><i class="fa fa-sign-in"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_login; ?></span></a></li>
-              <?php } else { ?>
-              <li><a href="<?php echo $logout; ?>" title="<?php echo $text_logout; ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_logout; ?></span></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-      </div>
+    <ul class="nav navbar-nav navbar-nav-news">
+      <li class="active"><a href="#">Home</a></li>
+      <?php foreach ($categories as $category) { 
+        if (!empty($category['children'])) { ?>
+            <li class="dropdown">
+              <a title="<?php echo $category['name']; ?>" class="dropdown-toggle" 
+                data-toggle="dropdown" href="<?php echo $category['href']; ?>">
+                <?php echo $category['name']; ?> <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <?php foreach ($category['children'] as $child) { ?>
+                  <li>
+                    <a title="<?php echo $child['name']; ?>" href="<?php echo $child['href']; ?>">
+                      <?php echo $child['name']; ?>
+                    </a>
+                  </li>
+                <?php } ?>
+              </ul>
+            </li>              
+        <?php } else { ?>
+          <li>
+            <a title="<?php echo $category['name']; ?>" href="<?php echo $category['href']; ?>">
+              <?php echo $category['name']; ?>
+            </a>
+          </li>
+        <?php } ?>
+      <?php } ?>
+    </ul>
+    <div class="col-sm-3 col-md-3 pull-right text-right">
+      <form class="navbar-form search-form" role="search">
+          <div class="input-group input-group-search">
+              <input type="text" class="form-control text-search" placeholder="Tìm kiếm ..." name="q">
+              <div class="input-group-btn">
+                  <button class="btn btn-search" type="submit"><i class="fa fa-search"></i></button>
+              </div>
+          </div>
+      </form>
+    </div>        
   </div>
 </nav>
-  <div class="menutopNew">
-    <ul>
-        <?php foreach ($categories as $category) { ?>
-        <li class="lisroot lihome">
-          <a title="<?php echo $category['name']; ?>" href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a>
-          <?php if (!empty($category['children'])) { ?>
-          <ul class="ulchild">
-            <?php foreach ($category['children'] as $child) { ?>
-            <li><a title="<?php echo $child['name']; ?>" href="<?php echo $child['href']; ?>"><?php echo $child['name']; ?></a></li>
-            <?php } ?>
-          </ul>
-          <?php } ?>
-        </li>
-        <?php } ?>
-        <li class="SearchNew">
-            <div>
-                <input type="text" style="border-style:None;" placeholder="Nhập từ khóa" class="txtSearch" id="txtSearchnew" name="dnn$ctr2659$View$txtSearchnew">
-                <input type="submit" style="border-style:None;" class="btnSearch" id="dnn_ctr2659_View_btnsearch" onclick="return CheckSearch();" value="Tìm kiếm" name="dnn$ctr2659$View$btnsearch">
-            </div>
-        </li>
-    </ul>
-    <div class="clr"></div>
-</div>
