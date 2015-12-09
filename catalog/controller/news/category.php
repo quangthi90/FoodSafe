@@ -1,5 +1,6 @@
 <?php
 class ControllerNewsCategory extends Controller {
+	private $numberPostsPerPage = 3;
 	public function index() {
 		$this->document->setTitle($this->config->get('config_meta_title'));
 		$this->document->setDescription($this->config->get('config_meta_description'));
@@ -64,13 +65,14 @@ class ControllerNewsCategory extends Controller {
 			return;
 		}
 
+		$data['cat_info'] = $category_info;
 		$category_id = $category_info['news_category_id'];
 
 		// Last news
 		$news_filter = array(
 			'filter_news_category_id' => $category_id,
-			'start' => ($page - 1) * 10,
-			'limit' => 10
+			'start' => ($page - 1) * $this->numberPostsPerPage,
+			'limit' => $this->numberPostsPerPage
 		);
 		$news_total = $this->model_news_news->getTotalNews($news_filter);
 		$results = $this->model_news_news->getNewses($news_filter);
@@ -88,12 +90,12 @@ class ControllerNewsCategory extends Controller {
 		$pagination = new Pagination();
 		$pagination->total = $news_total;
 		$pagination->page = $page;
-		$pagination->limit = 10;
+		$pagination->limit = $this->numberPostsPerPage;
 		$pagination->url = $this->url->link('news/category', 'path=' . $this->request->get['path'] . '&page={page}', 'SSL');
 
 		$data['pagination'] = $pagination->render();
 		
-		$data['results'] = sprintf($this->language->get('text_pagination'), ($news_total) ? (($page - 1) * 10) + 1 : 0, ((($page - 1) * 10) > ($news_total - 10)) ? $news_total : ((($page - 1) * 10) + 10), $news_total, ceil($news_total / 10));
+		$data['results'] = sprintf($this->language->get('text_pagination'), ($news_total) ? (($page - 1) * $this->numberPostsPerPage) + 1 : 0, ((($page - 1) * $this->numberPostsPerPage) > ($news_total - $this->numberPostsPerPage)) ? $news_total : ((($page - 1) * $this->numberPostsPerPage) + $this->numberPostsPerPage), $news_total, ceil($news_total / $this->numberPostsPerPage));
 
 		$data['column_left'] = $this->load->controller('news/column_left');
 		$data['column_right'] = $this->load->controller('news/column_right');
