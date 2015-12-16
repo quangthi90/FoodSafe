@@ -41,35 +41,47 @@
 </head>
 <body class="<?php echo $class; ?>">
   <div class="header_bar">
-    <div class="container_width" style="z-index: 1;">
+    <div class="container_width" style="z-index: 2;">
       <div class="fl">
         <a href="#" title="Gian hàng bán">Gian hàng bán</a>
         <a href="/tin-tuc/" title="Tin tức">Tin tức</a>
       </div>
       <div class="fr">
         <a href="<?php echo $register; ?>" class="simple_tip icon register" title="Đăng ký"><i class="fa fa-user-plus"></i> Đăng ký</a>
-        <a type="button" href="#" onclick="$('#header_login').slideToggle(); return;" class="simple_tip icon user"><i class="fa fa-user"></i> Đăng nhập</a>
-        <div id="header_login" style="display: none;">
-          <div class="simple_tip_wrapper header_bar_simple_tip">
-            <div id="simple_tip_content">
-              <form class="header_login" method="post" action="<?php echo $login; ?>">
-                <div class="login_other"><a title="Đăng nhập từ Facebook" rel="nofollow" class="facebook"></a></div>
-                <div class="login_other"><a title="Đăng nhập từ Google" class="google" rel="nofollow"></a></div>
-                <div class="text or">Hoặc đăng nhập bằng <span class="icon_sprite icon_sprite_idvg" style="vertical-align: text-bottom;"></span></div>
-                <div class="floginname"><i class="icon_sprite icon_sprite_floginname"></i> <input class="form_control" name="loginname" autocomplete="off" placeholder="Tên đăng nhập" type="text"></div>
-                <div class="fpassword"><i class="icon_sprite icon_sprite_fpassword"></i> <input class="form_control" name="password" placeholder="Mật khẩu" type="password"></div>
-                <div style="white-space: normal;">
-                  <input name="remember_password" value="1" type="checkbox" style="vertical-align: text-bottom;"><span class="text">Nhớ mật khẩu</span>
-                  <a class="text_link fr" href="https://id.vatgia.com/quen-mat-khau/" target="_blank" rel="nofollow">Quên mật khẩu?</a>
-                  <span class="clear"></span>
-                </div>
-                <div><input data-ptsp-kpi-action-label="Đăng nhập ID Vật Giá" data-ptsp-kpi-action-name="Navigation (neo trên cùng)" class="form_button" value="Đăng nhập" type="submit"></div>
-              </form>
-            </div>
-          </div>
-        </div>
+        <a type="button" href="#" onclick="showLoginForm($(this))" class="simple_tip icon user"><i class="fa fa-user"></i> Đăng nhập</a>
+        <a type="button" href="#" onclick="$('#header_login').slideToggle(); return;" class="simple_tip icon user"><i class="fa fa-question-circle"></i> Hỗ trợ</a>
+        <script type="text/javascript">
+        function showLoginForm($this) {
+          if (!$this.hasClass('active')) {
+            $this.addClass('active'); 
+            $('#header_login').show(); 
+          } else { 
+            $this.removeClass('active');
+            $('#header_login').hide(); 
+          }
+        }
+        </script>
       </div>
       <div class="clear"></div>
+    </div>
+  </div>
+  <div id="header_login" style="display: none; position: absolute; right: 157px; z-index: 1;">
+    <div class="simple_tip_wrapper header_bar_simple_tip">
+      <div id="simple_tip_content">
+        <form class="header_login" method="post" action="<?php echo $login; ?>">
+          <div class="login_other"><a title="Đăng nhập từ Facebook" rel="nofollow" class="facebook"></a></div>
+          <div class="login_other"><a title="Đăng nhập từ Google" class="google" rel="nofollow"></a></div>
+          <div class="text or">Hoặc đăng nhập bằng <span class="icon_sprite icon_sprite_idvg" style="vertical-align: text-bottom;"></span></div>
+          <div class="floginname"><i class="icon_sprite icon_sprite_floginname"></i> <input class="form_control" name="loginname" autocomplete="off" placeholder="Tên đăng nhập" type="text"></div>
+          <div class="fpassword"><i class="icon_sprite icon_sprite_fpassword"></i> <input class="form_control" name="password" placeholder="Mật khẩu" type="password"></div>
+          <div style="white-space: normal;">
+            <input name="remember_password" value="1" type="checkbox" style="vertical-align: text-bottom;"><span class="text">Nhớ mật khẩu</span>
+            <a class="text_link fr" href="https://id.vatgia.com/quen-mat-khau/" target="_blank" rel="nofollow">Quên mật khẩu?</a>
+            <span class="clear"></span>
+          </div>
+          <div><input data-ptsp-kpi-action-label="Đăng nhập ID Vật Giá" data-ptsp-kpi-action-name="Navigation (neo trên cùng)" class="form_button" value="Đăng nhập" type="submit"></div>
+        </form>
+      </div>
     </div>
   </div>
 
