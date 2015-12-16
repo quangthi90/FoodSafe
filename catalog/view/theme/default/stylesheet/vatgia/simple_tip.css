@@ -1,0 +1,80 @@
+#simple_tip{
+	position: absolute;
+	z-index: 5;
+}
+#simple_tip_arrow{
+	background: url(image/arrow.gif) no-repeat 0 0;
+	display: block;
+	font-size: 0;
+	top: -9px;
+	left: 9px;
+	position: absolute;
+	width: 17px;
+	height: 9px;
+	overflow: hidden;
+}
+#simple_tip_arrow.top{
+	background: url(image/arrow.gif) no-repeat 0 -8px;
+	top: auto;
+	bottom: -9px;
+}
+#simple_tip_arrow.left, #simple_tip_arrow.right{
+	top: 9px;
+	width: 9px;
+	height: 17px;
+}
+#simple_tip_arrow.left{
+	background: url(image/arrow.gif) no-repeat -8px 0;
+	left: auto;
+	right: -9px;
+}
+#simple_tip_arrow.right{
+	background: url(image/arrow.gif) no-repeat 0 0;
+	left: -9px;
+}
+.simple_tip_wrapper{
+	background: #FFF;
+	border: 1px #E5E5E5 solid;
+	box-shadow: 0 1px 3px rgba(204, 204, 204, .5);
+	color: #000;
+	position: relative;
+}
+.simple_tip_confirm{
+	padding: 12px;
+	text-align: center;
+}
+.simple_tip_confirm .button{
+	margin-top: 9px;
+}
+.simple_tip_confirm .button input{
+	font-size: 12px;
+}
+.simple_tip_content_text{
+	line-height: 156%;
+	padding: 9px 12px;
+}
+#category_icon_floor {
+    left: -35px;
+    margin-top: -200px;
+    position: fixed;
+    top: 50%;
+    width: 35px;
+    z-index: 2;
+}
+#category_icon_floor ul {
+    transition: all 0.3s ease 0s;
+}
+#category_icon_floor li a {
+    background: rgba(0, 0, 0, 0) url("http://static.vatgia.com/20151110/cache/css/v4/category_icon.png") no-repeat scroll 0 0;
+    display: block;
+    height: 35px;
+    width: 35px;
+}
+#category_icon_floor.affix ul {
+    opacity: 1;
+    transform: scale(1);
+}
+#category_icon_floor.affix-top ul, #category_icon_floor.affix-bottom ul {
+    opacity: 0;
+    transform: scale(0.8);
+}

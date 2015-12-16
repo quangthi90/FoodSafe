@@ -40,11 +40,63 @@
 <?php echo $google_analytics; ?>
 </head>
 <body class="<?php echo $class; ?>">
+  <div class="header_bar">
+    <div class="container_width" style="z-index: 1;">
+      <div class="fl">
+        <a href="#" title="Gian hàng bán">Gian hàng bán</a>
+        <a href="/tin-tuc/" title="Tin tức">Tin tức</a>
+      </div>
+      <div class="fr">
+        <a href="<?php echo $register; ?>" class="simple_tip icon register" title="Đăng ký"><i class="fa fa-user-plus"></i> Đăng ký</a>
+        <a type="button" href="#" onclick="$('#header_login').slideToggle(); return;" class="simple_tip icon user"><i class="fa fa-user"></i> Đăng nhập</a>
+        <div id="header_login" style="display: none;">
+          <div class="simple_tip_wrapper header_bar_simple_tip">
+            <div id="simple_tip_content">
+              <form class="header_login" method="post" action="<?php echo $login; ?>">
+                <div class="login_other"><a title="Đăng nhập từ Facebook" rel="nofollow" class="facebook"></a></div>
+                <div class="login_other"><a title="Đăng nhập từ Google" class="google" rel="nofollow"></a></div>
+                <div class="text or">Hoặc đăng nhập bằng <span class="icon_sprite icon_sprite_idvg" style="vertical-align: text-bottom;"></span></div>
+                <div class="floginname"><i class="icon_sprite icon_sprite_floginname"></i> <input class="form_control" name="loginname" autocomplete="off" placeholder="Tên đăng nhập" type="text"></div>
+                <div class="fpassword"><i class="icon_sprite icon_sprite_fpassword"></i> <input class="form_control" name="password" placeholder="Mật khẩu" type="password"></div>
+                <div style="white-space: normal;">
+                  <input name="remember_password" value="1" type="checkbox" style="vertical-align: text-bottom;"><span class="text">Nhớ mật khẩu</span>
+                  <a class="text_link fr" href="https://id.vatgia.com/quen-mat-khau/" target="_blank" rel="nofollow">Quên mật khẩu?</a>
+                  <span class="clear"></span>
+                </div>
+                <div><input data-ptsp-kpi-action-label="Đăng nhập ID Vật Giá" data-ptsp-kpi-action-name="Navigation (neo trên cùng)" class="form_button" value="Đăng nhập" type="submit"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+
 <nav id="top">
   <div class="container">
     <?php //echo $currency; ?>
     <?php //echo $language; ?>
-    <div class="row">
+    <div style="overflow: visible;" class="header_content container_width">
+      <div class="logo">
+        <?php if ($logo) { ?>
+        <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive img-logo" /></a>
+        <?php } else { ?>
+        <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
+        <?php } ?>
+      </div>
+      <div class="banner" id="banner_190x50" title="Banner liên hệ quảng cáo">
+        <div id="myadBan_14308" style="width:190px;height:50px;display:inline-block;background: none;position: relative;font-size: 0;text-align: center;overflow:hidden;" class="first">
+          <a href="#" title="Liên hệ quảng cáo"><img src="http://media.myad.vn/photo/users_b_upload/2015/12/zbn1449656040.jpg" style="width : auto;"></a>
+        </div>
+      </div>
+      <div class="search">
+        <?php echo $search; ?>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <!--div class="row">
       <div class="col-xs-7">
         <div class="row header-logo">
           <div class="col-sm-4">
@@ -90,8 +142,7 @@
           </div>
         </div>
       </div>
-    </div>
-    
+    </div-->
   </div>
 </nav>
 <nav id="top-float">

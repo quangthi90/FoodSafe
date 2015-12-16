@@ -9,6 +9,10 @@ class ControllerCommonHome extends Controller {
 			$this->document->addLink(HTTP_SERVER, 'canonical');
 		}
 
+		// Bommer
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/vatgia/main.css');
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/vatgia/simple_tip.css');
+
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

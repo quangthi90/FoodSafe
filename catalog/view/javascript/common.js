@@ -366,7 +366,7 @@ var AppCommon = (function($, undefined){
 		});
 
 		/* Search */
-		$('#search input[name=\'search\']').parent().find('button').on('click', function() {
+		$('#search').find('button').on('click', function() {
 			url = $('base').attr('href') + 'index.php?route=product/search';
 
 			var value = $('header input[name=\'search\']').val();
