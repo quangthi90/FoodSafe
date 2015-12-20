@@ -79,7 +79,7 @@ class ControllerCommonHome extends Controller {
 			'category_data' => $categories_data, 
 			'category_banners' => $category_banners
 		);
-
+		$data['categories_data'] = $categories_data;
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/category_slideshow.tpl')) {
 			$data['categories_slideshow'] = $this->load->view($this->config->get('config_template') . '/template/api/module/category_slideshow.tpl', $viewData);
 		} else {

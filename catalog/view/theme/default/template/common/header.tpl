@@ -44,7 +44,7 @@
     <div class="container_width" style="z-index: 2;">
       <div class="fl">
         <a href="#" title="Gian hàng bán">Gian hàng bán</a>
-        <a href="/tin-tuc/" title="Tin tức">Tin tức</a>
+        <a href="<?php echo $news; ?>" title="Tin tức">Tin tức</a>
       </div>
       <div class="fr">
         <a href="<?php echo $register; ?>" class="simple_tip icon register" title="Đăng ký"><i class="fa fa-user-plus"></i> Đăng ký</a>
@@ -84,126 +84,27 @@
       </div>
     </div>
   </div>
-
-
-<nav id="top">
-  <div class="container">
-    <?php //echo $currency; ?>
-    <?php //echo $language; ?>
-    <div style="overflow: visible;" class="header_content container_width">
-      <div class="logo">
-        <?php if ($logo) { ?>
-        <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive img-logo" /></a>
-        <?php } else { ?>
-        <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
-        <?php } ?>
-      </div>
-      <div class="banner" id="banner_190x50" title="Banner liên hệ quảng cáo">
-        <div id="myadBan_14308" style="width:190px;height:50px;display:inline-block;background: none;position: relative;font-size: 0;text-align: center;overflow:hidden;" class="first">
-          <a href="#" title="Liên hệ quảng cáo"><img src="http://media.myad.vn/photo/users_b_upload/2015/12/zbn1449656040.jpg" style="width : auto;"></a>
+  <header>
+    <div class="container">
+      <?php //echo $currency; ?>
+      <?php //echo $language; ?>
+      <div style="overflow: visible;" class="header_content container_width">
+        <div class="logo">
+          <?php if ($logo) { ?>
+          <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive img-logo" /></a>
+          <?php } else { ?>
+          <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
+          <?php } ?>
         </div>
-      </div>
-      <div class="search">
-        <?php echo $search; ?>
-      </div>
-      <div class="clear"></div>
-    </div>
-    <!--div class="row">
-      <div class="col-xs-7">
-        <div class="row header-logo">
-          <div class="col-sm-4">
-            <div id="logo">
-              <?php if ($logo) { ?>
-              <a href="<?php echo $home; ?>"><img src="<?php echo $logo; ?>" title="<?php echo $name; ?>" alt="<?php echo $name; ?>" class="img-responsive img-logo" /></a>
-              <?php } else { ?>
-              <h1><a href="<?php echo $home; ?>"><?php echo $name; ?></a></h1>
-              <?php } ?>
-            </div>
-          </div>
-          <div class="col-sm-7 col-sm-offset-1"><?php echo $search; ?>
-          </div>          
-        </div>
-      </div>
-      <div class="col-xs-5">
-        <div class="row">
-          <div class="col-xs-9">
-            <div id="top-links" class="nav pull-right">
-              <ul class="list-inline">
-                <li><a href="<?php echo $wishlist; ?>" id="wishlist-total" title="<?php echo $text_wishlist; ?>"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_wishlist; ?></span></a></li>
-                <?php if ($logged) { ?>
-                <li class="dropdown"><a href="<?php echo $account; ?>" title="<?php echo $text_account; ?>" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_account; ?></span> <span class="caret"></span></a>
-                  <ul class="dropdown-menu dropdown-menu-right">
-                    <li><a href="<?php echo $account; ?>"><?php echo $text_account; ?></a></li>
-                    <li><a href="<?php echo $order; ?>"><?php echo $text_order; ?></a></li>
-                    <li><a href="<?php echo $transaction; ?>"><?php echo $text_transaction; ?></a></li>
-                    <li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>
-                  </ul>
-                </li>
-                <?php } ?>
-                <?php if (!$logged) { ?>
-                <li><a href="<?php echo $register; ?>" title="<?php echo $text_register; ?>"><i class="fa fa-user-plus"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_register; ?></span></a></li>
-                <li><a href="<?php echo $login; ?>" title="<?php echo $text_login; ?>"><i class="fa fa-sign-in"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_login; ?></span></a></li>
-                <?php } else { ?>
-                <li><a href="<?php echo $logout; ?>" title="<?php echo $text_logout; ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_logout; ?></span></a></li>
-                <?php } ?>       
-              </ul>          
-            </div>
-          </div>
-          <div class="col-xs-3">
-            <div class="cart-wrapper pull-right"><?php echo $cart; ?></div>
+        <div class="banner" id="banner_190x50" title="Banner liên hệ quảng cáo">
+          <div id="myadBan_14308" style="width:190px;height:50px;display:inline-block;background: none;position: relative;font-size: 0;text-align: center;overflow:hidden;" class="first">
+            <a href="#" title="Liên hệ quảng cáo"><img src="http://media.myad.vn/photo/users_b_upload/2015/12/zbn1449656040.jpg" style="width : auto;"></a>
           </div>
         </div>
-      </div>
-    </div-->
-  </div>
-</nav>
-<nav id="top-float">
-  <div class="container">
-      <div class="row">
-        <div class="col-sm-3">
-          <button type="button" class="btn btn-primary btn-lg btn-navbar" id="btn-category-trigger">
-          <i class="fa fa-bars"></i> Sản phẩm
-          </button>
-        </div>
-        <div class="col-sm-5">
+        <div class="search">
           <?php echo $search; ?>
         </div>
-        <div class="col-sm-2">
-          <?php echo $cart; ?>
-        </div>
-        <div class="col-sm-2">
-          <ul class="list-inline user-menu">
-            <?php if (!$logged) { ?>
-              <li><a href="<?php echo $register; ?>" title="<?php echo $text_register; ?>"><i class="fa fa-user-plus"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_register; ?></span></a></li>
-              <li><a href="<?php echo $login; ?>" title="<?php echo $text_login; ?>"><i class="fa fa-sign-in"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_login; ?></span></a></li>
-              <?php } else { ?>
-              <li><a href="<?php echo $logout; ?>" title="<?php echo $text_logout; ?>"><i class="fa fa-sign-out"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_logout; ?></span></a></li>
-            <?php } ?>
-          </ul>
-        </div>
-      </div>
-  </div>
-</nav>
-<header>
-  <div class="container">    
-    <div class="row header-category">
-      <div class="col-md-2" style="padding-right: 0;">
-        <a id="category" class="btn btn-primary btn-lg block"><i class="fa fa-bars"></i> Sản phẩm</a>
-      </div>
-      <div class="col-md-10" style="padding-left: 0;">
-        <div class="row">
-          <div class="col-sm-9">
-            <ul class="list-inline links">
-              <li><a href="<?php echo $news; ?>" title="<?php echo $text_news; ?>"><i class="fa fa-newspaper-o"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_news; ?></span></a></li>
-              <li><a href="#" title="<?php echo $text_contact; ?>"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_shops; ?></span></a></li>
-              <li><a href="<?php echo $contact; ?>" title="<?php echo $text_contact; ?>"><i class="fa fa-phone"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $text_contact; ?></span></a></li>
-            </ul>
-          </div>
-          <div class="col-sm-3">
-            <a href="#" class="btn btn-primary btn-lg text-uppercase block"><i class="fa fa-plus"></i> Khởi tạo gian hàng</a>
-          </div>
-        </div>
+        <div class="clear"></div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
