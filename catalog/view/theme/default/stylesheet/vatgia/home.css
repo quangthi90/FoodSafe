@@ -1,0 +1,189 @@
+.brand {
+    font-size: 0;
+    height: 330px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+.brand .banner {
+    height: 330px;
+    width: 190px;
+}
+.brand .logo {
+    margin-left: 194px;
+    width: 804px;
+}
+.brand .logo a {
+    background: #fff none repeat scroll 0 0;
+    float: left;
+    margin: 0 2px 2px 0;
+    padding: 18px 0;
+    text-align: center;
+    width: 132px;
+}
+.brand .logo img {
+    height: 45px;
+    width: 90px;
+}
+.container_body_resize .brand .logo {
+    width: 604px;
+}
+.container_body_resize .brand .logo a {
+    width: 149px;
+}
+.category_homepage {
+    background: #fff none repeat scroll 0 0;
+    height: 420px;
+    margin: 30px auto;
+    overflow: hidden;
+}
+.category_homepage .wrapper {
+    height: 100%;
+    width: 102%;
+}
+.category_homepage .category {
+    float: left;
+    height: 100%;
+    width: 190px;
+}
+.category_homepage .category .title {
+    background-image: url("http://static.vatgia.com/20151110/cache/css/v4/transparent_10.png");
+    background-repeat: repeat;
+    color: #fff;
+    font-weight: bold;
+    height: 33px;
+    line-height: 33px;
+    overflow: hidden;
+    position: relative;
+    text-transform: uppercase;
+}
+.category_homepage .category .title .label {
+    margin-left: 45px;
+}
+.category_homepage .category .title .floor {
+    font-size: 15px;
+    height: 33px;
+    left: 0;
+    padding-left: 7px;
+    position: absolute;
+    top: 0;
+    width: 21px;
+}
+.category_homepage .category .title .floor .arrow {
+    border-bottom: 17px solid transparent;
+    border-left: 9px solid;
+    border-top: 16px solid transparent;
+    height: 0;
+    left: 28px;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.category_homepage .floor_10 .category .title .label {
+    margin-left: 53px;
+}
+.category_homepage .floor_10 .category .title .floor {
+    width: 29px;
+}
+.category_homepage .floor_10 .category .title .floor .arrow {
+    left: 36px;
+}
+.category_homepage .category .icon {
+    background-image: url("http://static.vatgia.com/20151110/cache/css/v4/transparent_20.png");
+    background-repeat: repeat;
+    font-size: 11px;
+    height: 56px;
+    padding-top: 12px;
+    text-align: center;
+}
+.category_homepage .category .icon a {
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 24px auto;
+    color: #fff;
+    display: block;
+    height: 14px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-top: 30px;
+    transition: background-size 0.2s linear 0s;
+    width: 64px;
+}
+.category_homepage .category .icon a:hover {
+    background-size: 28px auto;
+}
+.category_homepage .category .icon_2 {
+    padding-left: 20px;
+}
+.category_homepage .category .icon_2 a {
+    float: left;
+}
+.category_homepage .category .icon_2 .sep {
+    background: rgba(0, 0, 0, 0) url("http://static.vatgia.com/20151110/cache/css/v4/beacon_sprite.png") no-repeat scroll 0 -540px;
+    float: left;
+    height: 48px;
+    margin: 0 10px;
+    width: 1px;
+}
+.category_homepage .category .list {
+    background: #fafaf8 none repeat scroll 0 0;
+    height: 180px;
+    overflow: hidden;
+    width: 100%;
+}
+.category_homepage .category .list li {
+    display: block;
+    font-size: 13px;
+    margin: 12px;
+}
+.category_homepage .category .carousel {
+    font-size: 0;
+    margin: 0 auto;
+    width: 100px;
+}
+.category_homepage .category .carousel li a {
+    display: block;
+    margin: 16px auto;
+    width: 90px;
+}
+.category_homepage .category .carousel li img {
+    height: 45px;
+    width: 90px;
+}
+.category_homepage .main_banner, .category_homepage .other_banner {
+    float: left;
+    font-size: 0;
+}
+.category_homepage .main_banner {
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    width: 399px;
+}
+.category_homepage .main_banner img {
+    height: 420px;
+    width: 400px;
+}
+.category_homepage .other_banner a {
+    border-bottom: 1px solid #e5e5e5;
+    border-left: 1px solid #e5e5e5;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    width: 199px;
+}
+.category_homepage .other_banner .big img {
+    height: 255px;
+    width: 200px;
+}
+.category_homepage .other_banner .small img {
+    height: 165px;
+    width: 200px;
+}
+.brand .logo img, .category_homepage .other_banner img, .category_homepage .category .carousel li img {
+    transition: transform 0.2s linear 0s;
+}
+.brand .logo img:hover, .category_homepage .other_banner img:hover, .category_homepage .category .carousel li img:hover {
+    transform: translateX(-5px);
+}
