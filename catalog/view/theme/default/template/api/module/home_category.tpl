@@ -28,7 +28,7 @@
                 </li>
             <?php } ?>
             </ul>
-            <div data-ride="carousel" class="carousel slide" id="carousel_1">
+            <!--div data-ride="carousel" class="carousel slide" id="carousel_1">
                 <a data-slide="prev" href="#carousel_1" class="carousel-control left"></a>
                 <a data-slide="next" href="#carousel_1" class="carousel-control right"></a>
                 <ul class="carousel-inner">
@@ -38,16 +38,21 @@
                         </a>
                     </li>
                 </ul>
-            </div>
+            </div-->
         </div>
-        <a rel="nofollow" target="_blank" href="/home/redirect_banner.php?iData=526&amp;ip=712253882&amp;time=1450607654&amp;security_code=47f93e15acd08a49e7723f9e60623343&amp;nEst=thoitrang_dienthoai" class="main_banner" data-ptsp-kpi-action-name="Trang chủ" data-ptsp-kpi-action-label="Banner tầng">
-            <img data-original="http://media.vatgia.vn/banners/avq1450403004.jpg" class="lazy" src="http://media.vatgia.vn/banners/avq1450403004.jpg" style="display: inline;">
-        </a>
+        <?php $products = $category['products']; ?>
+        <?php for ($i = 0; $i < 10; $i++) { ?>
+        <?php if (empty($products[$i])) break; ?>
         <div class="other_banner">
-            <a rel="nofollow" target="_blank" href="/home/redirect_banner.php?iData=588&amp;ip=712253882&amp;time=1450607654&amp;security_code=ea02baf1adb431f0884b75c9393e61ea&amp;nEst=nguyenhoamobile" class="big" data-ptsp-kpi-action-name="Trang chủ" data-ptsp-kpi-action-label="Banner tầng">
-                <img data-original="http://media.vatgia.vn/banners/qzr1449470748.jpg" class="lazy" src="http://media.vatgia.vn/banners/qzr1449470748.jpg" style="display: inline;">
+            <a rel="nofollow" target="_blank" href="<?php echo $products[$i]['href']; ?>" class="big" title="<?php echo $products[$i]['name']; ?>">
+                <img class="lazy" src="<?php echo $products[$i]['thumb']; ?>" style="display: inline; width: 200px; height: 200px;">
+            </a>
+            <?php $i++; ?>
+            <a rel="nofollow" target="_blank" href="<?php echo $products[$i]['href']; ?>" class="big" title="<?php echo $products[$i]['name']; ?>">
+                <img class="lazy" src="<?php echo $products[$i]['thumb']; ?>" style="display: inline; width: 200px; height: 200px;">
             </a>
         </div>
+        <?php } ?>
     </div>
 </div>
 <?php } ?>
