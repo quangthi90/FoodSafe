@@ -437,19 +437,19 @@ div.required .control-label:before {
 footer {
 	margin-top: 30px;
 	padding-top: 30px;
-	background-color: #303030;
-	border-top: 1px solid #ddd;
-	color: #e2e2e2;
+	background-color: white;
+	border-top: 1px solid black;
+	color: black;
 }
 footer hr {
 	border-top: none;
 	border-bottom: 1px solid #666;
 }
 footer a {
-	color: #ccc;
+	color: black;
 }
 footer a:hover {
-	color: #fff;
+	color: #365db5;
 }
 footer h5 {
 	font-family: 'Arial', sans-serif;

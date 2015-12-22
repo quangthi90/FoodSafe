@@ -41,7 +41,7 @@
 </head>
 <body class="<?php echo $class; ?>">
   <div class="header_bar">
-    <div class="container_width" style="z-index: 2;">
+    <div class="container_width" style="z-index: 21;">
       <div class="fl">
         <a href="#" title="Gian hàng bán">Gian hàng bán</a>
         <a href="<?php echo $news; ?>" title="Tin tức">Tin tức</a>
@@ -65,7 +65,7 @@
       <div class="clear"></div>
     </div>
   </div>
-  <div id="header_login" style="display: none; position: absolute; right: 157px; z-index: 1;">
+  <div id="header_login" style="display: none; position: absolute; right: 148px; z-index: 20;">
     <div class="simple_tip_wrapper header_bar_simple_tip">
       <div id="simple_tip_content">
         <form class="header_login" method="post" action="<?php echo $login; ?>">
