@@ -10,14 +10,14 @@ class ControllerCommonHome extends Controller {
 		}
 
 		//TODO: Category Slideshow (move latter)
-		$data = $this->load->api('module/main_slideshow', array(
+		$slide_data = $this->load->api('module/main_slideshow', array(
 			'is_system_call' => true
 		));
 
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/main_slideshow.tpl')) {
-			$data['slideshow'] = $this->load->view($this->config->get('config_template') . '/template/api/module/main_slideshow.tpl', $data);
+			$data['slideshow'] = $this->load->view($this->config->get('config_template') . '/template/api/module/main_slideshow.tpl', $slide_data);
 		} else {
-			$data['slideshow'] = $this->load->view('default/template/api/module/main_slideshow.tpl', $data);
+			$data['slideshow'] = $this->load->view('default/template/api/module/main_slideshow.tpl', $slide_data);
 		}
 
 		// Bommer

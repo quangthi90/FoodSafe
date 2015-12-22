@@ -10,28 +10,14 @@
 				$data['column_left'] = $this->load->controller('common/column_left');
 			]]></search>
 			<add><![CDATA[
-				$this->load->model('catalog/category');
+				$cat_data = $this->load->api('module/home_category', array(
+					'is_system_call' => true
+				));
 
-				$categories = $this->model_catalog_category->getCategories();
-
-				$cat_data['modules'] = array();
-
-				foreach ($categories as $key => $category) {
-					# code...
-					if ($key == 5) break;
-
-					$cat_data['modules'][$key] =  $this->load->api('product/category', array(
-						'limit' => $this->limit,
-						'category_id' => $category['category_id'],
-						'is_system_call' => true
-					));
-					$cat_data['modules'][$key]['code'] = 'category' . $category['category_id'];
-				}
-
-				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/categories.tpl')) {
-					$data['categories'] = $this->load->view($this->config->get('config_template') . '/template/api/module/categories.tpl', $cat_data);
+				if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/api/module/home_category.tpl')) {
+					$data['categories'] = $this->load->view($this->config->get('config_template') . '/template/api/module/home_category.tpl', $cat_data);
 				} else {
-					$data['categories'] = $this->load->view('default/template/api/module/categories.tpl', $cat_data);
+					$data['categories'] = $this->load->view('default/template/api/module/home_category.tpl', $cat_data);
 				}
 			]]></add>
 		</operation>

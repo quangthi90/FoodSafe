@@ -26,7 +26,7 @@ $_['entry_filter']           = 'Filters';
 $_['entry_store']            = 'Stores';
 $_['entry_image']            = 'Image';
 $_['entry_top']              = 'Top';
-$_['entry_column']           = 'Columns';
+$_['entry_column']           = 'Icon Class';
 $_['entry_sort_order']       = 'Sort Order';
 $_['entry_status']           = 'Status';
 $_['entry_layout']           = 'Layout Override';
@@ -35,7 +35,7 @@ $_['entry_layout']           = 'Layout Override';
 $_['help_filter']            = '(Autocomplete)';
 $_['help_keyword']           = 'Do not use spaces, instead replace spaces with - and make sure the keyword is globally unique.';
 $_['help_top']               = 'Display in the top menu bar. Only works for the top parent categories.';
-$_['help_column']            = 'Number of columns to use for the bottom 3 categories. Only works for the top parent categories.';
+$_['help_column']            = 'The characters of icon class (http://fontawesome.io/icons/)';
 
 // Error
 $_['error_warning']          = 'Warning: Please check the form carefully for errors!';
