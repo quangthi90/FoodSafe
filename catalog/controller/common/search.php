@@ -11,6 +11,9 @@ class ControllerCommonSearch extends Controller {
 			$data['search'] = '';
 		}
 
+		// Bommer
+		$data['find_img'] = $this->model_tool_image->resize('catalog/ttnn_style/find.png', 32, 32);
+
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/search.tpl')) {
 			return $this->load->view($this->config->get('config_template') . '/template/common/search.tpl', $data);
 		} else {

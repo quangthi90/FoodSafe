@@ -9,6 +9,9 @@ class ControllerCommonHeader extends Controller {
 			$server = $this->config->get('config_url');
 		}
 
+		// Bommer
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/ttnn/css0.css');
+
 		$data['base'] = $server;
 		$data['description'] = $this->document->getDescription();
 		$data['keywords'] = $this->document->getKeywords();

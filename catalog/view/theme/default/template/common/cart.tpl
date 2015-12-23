@@ -1,4 +1,4 @@
-<div id="cart" class="btn-group btn-block">
+<!--div id="cart" class="btn-group btn-block">
   <a data-toggle="dropdown" data-loading-text="<?php echo $text_loading; ?>" class="btn dropdown-toggle">
     <i class="fa fa-shopping-cart"></i> 
     <span id="cart-total" class="label label-success"><?php echo $text_items; ?></span>
@@ -58,4 +58,71 @@
     </li>
     <?php } ?>
   </ul>
+</div-->
+
+<div class="shopArc" id="dnn_shopArc">
+  <div class="clShopArc" id="cart">
+    <div class="BoxShopArc">
+      <span class="carttitle">Giỏ hàng của bạn</span>
+      <div class="icon-cart shopping-cart">
+        <span class="coutCart">Sản phẩm (<?php echo count($products); ?>)</span>
+        <span class="priceCart">0 VND</span>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="ListPShopArc" style="display: none;">
+      <div class="tableCart">
+        <?php if ($products || $vouchers) { ?>
+        <table cellspacing="0" cellpadding="0">
+          <?php foreach ($products as $product) { ?>
+          <tr>
+            <td>
+              <a title="<?php echo $option['name']; ?>" href="<?php echo $product['href']; ?>">
+                <img width="60px" height="60px" alt="<?php echo $option['name']; ?>" src="<?php echo $product['thumb']; ?>">
+              </a>
+            </td>
+            <td width="150px">
+              <a title="<?php echo $option['name']; ?>" href="<?php echo $option['href']; ?>"><?php echo $option['name']; ?> (<?php echo $product['quantity']; ?>)</a>
+              <br>
+              <span class="priceC"><?php echo $product['total']; ?></span>
+            </td>
+            <td>
+              <a title="<?php echo $button_remove; ?>" onclick="cart.remove('<?php echo $product['key']; ?>');" rel="nofollow" class="btn-remove"><?php echo $button_remove; ?></a>
+            </td>
+          </tr>
+          <?php } ?>
+          <tr>
+            <td align="center" colspan="3">
+              <a class="btnThanhtoan" href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a>
+              <a class="btnThanhtoan" href="<?php echo $checkout; ?>"><?php echo $text_checkout; ?></a>
+            </td>
+          </tr>
+        </table>
+        <?php } else { ?>
+        <table cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center" colspan="3">
+              <span class="spnull"><?php echo $text_empty; ?></span>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" colspan="3">
+              <a class="btnThanhtoan" href="<?php echo $cart; ?>"><?php echo $text_cart; ?></a>
+            </td>
+          </tr>
+        </table>
+        <?php } ?>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
 </div>
+<script type="text/javascript">
+  $('#dnn_shopArc').hover(function() {
+    $('.ListPShopArc').slideDown();
+    $(this).find('.BoxShopArc').addClass('BoxShopArcHv');
+  }, function() {
+    $('.ListPShopArc').hide();
+    $(this).find('.BoxShopArc').removeClass('BoxShopArcHv');
+  });
+</script>

@@ -12,6 +12,7 @@ class ControllerCommonHome extends Controller {
 		// Bommer
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/ttnn/skin.css');
 		$this->document->addStyle('catalog/view/theme/default/stylesheet/ttnn/css_m.css');
+		$this->document->addStyle('catalog/view/theme/default/stylesheet/ttnn/CmsIndex.css');
 
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
