@@ -27,8 +27,8 @@
 <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
 <script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-<link href="catalog/view/theme/default/stylesheet/stylesheet_green.css" rel="stylesheet">
-<link href="catalog/view/javascript/jquery/owl-carousel/owl.carousel.css" rel="stylesheet">
+<!--link href="catalog/view/theme/default/stylesheet/stylesheet_green.css" rel="stylesheet">
+<link href="catalog/view/javascript/jquery/owl-carousel/owl.carousel.css" rel="stylesheet"-->
 <?php foreach ($styles as $style) { ?>
 <link href="<?php echo $style['href']; ?>" type="text/css" rel="<?php echo $style['rel']; ?>" media="<?php echo $style['media']; ?>" />
 <?php } ?>
@@ -40,6 +40,7 @@
 <?php echo $google_analytics; ?>
 </head>
 <body class="<?php echo $class; ?>">
+<div class="arfix"><div class="menuarc"><div class="titleMm unnoneTk" id="lmhtx">Thành viên liên kết cấp quốc <a href="https://plus.google.com/110823742127041646770?rel=author" style="color: #5A5752">g</a>ia liên minh hợp tác xã Việt Nam</div><div class="noneTk" id="ftk"><div class="SearchContainer" id="dnn_ArcMenu_SEARCH1_DropDownSearch"><div class="SearchBorder"><div class="ccm1 searchDown1"><div style="display: none;"><input type="text" value="Sản phẩm" class="MenuSearch1" id="dnn_ArcMenu_SEARCH1_MenuSearch1" name="dnn$ArcMenu$SEARCH1$MenuSearch1"></div><span class="MenuSearch1 valueSearch1">Sản phẩm</span><span class="searchDownicon1"></span><ul class="searulvalue1"><li onclick="getView('Sản phẩm')">Sản phẩm</li><li onclick="getView('Tin tức')">Tin tức</li><li onclick="getView('Rao vặt')">Rao vặt</li><li onclick="getView('Gian hàng')">Gian hàng</li></ul></div><div class="ccm2"><input type="text" onkeydown="return __dnn_KeyDown('13', 'javascript:__doPostBack(%27dnn$ArcMenu$SEARCH1$cmdSearchNew%27,%27%27)', event);" placeholder=" Tìm kiếm" class="SearchTextBox csf" id="txtSearchNew1" maxlength="255" name="dnn$ArcMenu$SEARCH1$txtSearchNew1">&nbsp;<ul class="searchchoices"><li class=".searchiconsite">Site</li></ul><div class="seF"><a href="javascript:__doPostBack('dnn$ArcMenu$SEARCH1$cmdSearchNew','')" class="ServerSkinWidget" id="dnn_ArcMenu_SEARCH1_cmdSearchNew" onclick="return checkSearch1();"><img border="0" alt="Search" src="/Portals/_default/Skins/ARC/images/tk.png"></a></div></div></div></div></div><div class="PanenRight"><div id="wrapper"><ul><li class=""><span class="cut_menu"></span><a onclick="GetPopupLogin()" title="Đăng nhập" rel="nofollow" class="cuta">Đăng nhập</a></li><li class=""><span class="cut_menu"></span><a onclick="GetPopup()" title="Đăng ký" rel="nofollow" class="cuta">Đăng ký</a></li></ul></div></div><div class="PanenLeft"><div id="navigation-wrapper"><ul><li class=""><a href="http://thitruongnongnghiep.vn/thuong-mai-hoa-sang-che">Thương mại hóa sáng chế</a></li><li class=""><span class="cut_menu"></span><a title="Gian hàng" href="http://thitruongnongnghiep.vn/gian-hang">Gian hàng</a></li><li class=""><span class="cut_menu"></span><a title="Tin tức" href="http://thitruongnongnghiep.vn/tin-tuc">Tin tức</a></li><li class=""><span class="cut_menu"></span><a title="Rao vặt" href="http://thitruongnongnghiep.vn/rao-vat">Rao vặt</a></li><li class=""><span class="cut_menu"></span><a title="Liên hệ" href="http://thitruongnongnghiep.vn/lien-he">Liên hệ</a></li></ul></div></div></div><div class="clrs"></div></div>
 <nav id="top">
   <div class="container">
     <?php //echo $currency; ?>
